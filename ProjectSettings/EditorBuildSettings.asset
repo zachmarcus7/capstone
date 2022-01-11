@@ -21,17 +21,23 @@ EditorBuildSettings:
     path: Assets/Scenes/MLAgentScreen.unity
     guid: 4d700931490ba6f45bd38dec313e3141
   - enabled: 0
-    path: Assets/Scenes/TwoPlayerScreen.unity
-    guid: edc6fae9f67f44e49af65dce5fb9aaab
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/Scenes/TwoPlayerMediumz.unity
+    guid: 4b80d14809f8bd846a24a4c95e00daa2
   - enabled: 1
     path: Assets/Scenes/TwoPlayerMedium.unity
-    guid: 074fce22de2a17241919161c601e59db
-  - enabled: 1
-    path: Assets/Scenes/TwoPlayerHard.unity
     guid: 9c43f7a3c5227ef4f98563680b9499f6
   - enabled: 1
     path: Assets/Scenes/TwoPlayerEasy.unity
     guid: 9460df14db5c8da46b5d9b6e9d334bae
+  - enabled: 1
+    path: Assets/Scenes/TwoPlayerHard.unity
+    guid: a824e4bac3642114dbd49f5b2414d778
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
