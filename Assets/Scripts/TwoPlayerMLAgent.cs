@@ -19,6 +19,7 @@ public class TwoPlayerMLAgent : Agent
 	Vector3 changeInBallLocation;
 	float previousPaddlePosition;
 	public float input;
+	public TwoPlayerMLBall ball;
 
 
 	void Awake()
@@ -36,7 +37,7 @@ public class TwoPlayerMLAgent : Agent
 		// check if any bricks have been broken
 		if (MLGameManager.instance.bricksBroken != previousBricksBroken)
 		{
-			AddReward(+2.25f);
+			AddReward(+1f);
 			previousBricksBroken = MLGameManager.instance.bricksBroken;
 		}
 
@@ -45,16 +46,14 @@ public class TwoPlayerMLAgent : Agent
 		{
 			AddReward(-1f);
 			previousLives = MLGameManager.instance.lives;
-			EndEpisode();
 		}
 		previousPaddlePosition = transform.position.x;
 	}
 
 	public override void OnEpisodeBegin()
 	{
-		transform.localPosition = new Vector3(-0.1f, 7.5f, 0f);
+		transform.localPosition = new Vector3(5f, 7.6f, 0f);
 		target.transform.localPosition = new Vector3(Random.Range(1f, 8f), 6f, 0);
-
 	}
 
 	public override void CollectObservations(VectorSensor sensor)
@@ -96,12 +95,15 @@ public class TwoPlayerMLAgent : Agent
 				break;
 		}
 
-		transform.localPosition += new Vector3(moveX * 2f, 0, 0) * Time.deltaTime * moveSpeed;   // added * 1.5f to make agent able to move faster
+		transform.localPosition += new Vector3(moveX * 2.5f, 0, 0) * Time.deltaTime * moveSpeed;   // added * 2.5f to make agent able to move faster
 	}
 
 	void OnCollisionEnter2D(Collision2D coll)
 	{
 		if (coll.gameObject.tag == "MLBall")
-			AddReward(+1.5f);
+		{
+			AddReward(+1f);
+		}
+
 	}
 }

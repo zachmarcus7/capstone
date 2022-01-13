@@ -79,7 +79,7 @@ public class TwoPlayerBall : MonoBehaviour
     public void AutomaticLaunch()
     {
         Renderer visual = GetComponent<Renderer>();
-        Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-200, 200), 200);
+        Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-200, 200), 108);
         rigidBody.AddForce(direction);
         inPlay = true;
         visual.enabled = true;
@@ -123,9 +123,14 @@ public class TwoPlayerBall : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         // check if ml bottom was hit
-        if (col.collider.tag == "Bottom")
+        if (col.collider.tag == "PlayerBottom")
         {
             decrementLives();
+        }
+        else if (col.collider.tag == "MLBottom")
+        {
+            // the ball has reached the other side, so the player wins
+            gm.PlayerWin();
         }
         // check if a brick was hit
         else if (brickReference.colors.Contains(col.collider.tag))

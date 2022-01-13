@@ -74,9 +74,13 @@ public class Pause : MonoBehaviour
 	{
 		menu.SetActive(true);
 
+		Debug.Log("winner pop up called");
+
 		// make it so only green game over header shows
 		gameOverHeader = this.gameObject.transform.GetChild(0).GetChild(2).gameObject;
 		gameOverHeader.SetActive(false);
+
+		Debug.Log("should be active");
 
 		// make it so nothing can move
 		Time.timeScale = 0f;

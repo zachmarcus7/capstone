@@ -27,15 +27,14 @@ public class GameManager : MonoBehaviour
         over = false;
 
         // set up winning score for different modes
-        if ((scene.name == "TwoPlayerMedium") || (scene.name == "TwoPlayerHard"))
-            winningScore = 43;
+        if (scene.name == "Main")
+            winningScore = 55;                       
 		else
-            winningScore = 55;
+            winningScore = 43;
     }
 
     private void Awake()
     {
-
         if (GameManager.instance != null)
         {
             Destroy(gameObject);
@@ -65,43 +64,25 @@ public class GameManager : MonoBehaviour
         // check if player has lost all their lives
         if (lives < 1)
             PlayerDeath();
-            // call new scene
     }
 
-    public void UpdateDisplay()
-    {
-
+    public void destroyPaddle()
+	{
+        over = true;
+        GameObject paddleObject = GameObject.Find("Paddle");
+        Destroy(paddleObject);
     }
 
     public void PlayerWin()
     {
-        over = true;
-        GameObject paddleObject = GameObject.Find("Paddle");
-        Destroy(paddleObject);
+        destroyPaddle();
         Pause.instance.ShowWinnerPopUp();
     }
 
     public void PlayerDeath()
     {
-        // check if we're in 1 player or 2 player mode
-        if ((scene.name == "TwoPlayerEasy") || (scene.name == "TwoPlayerMedium") || (scene.name == "TwoPlayerHard"))
-        {
-            over = true;
-            GameObject paddleObject = GameObject.Find("Paddle");
-            Destroy(paddleObject);
-
-            // check if the other player has finished their game
-            if (MLGameManager.instance.over)
-                Pause.instance.ShowEndPopUp();
-        }
-        else
-        {
-            over = true;
-            GameObject paddleObject = GameObject.Find("Paddle");
-            Destroy(paddleObject);
-            Pause.instance.ShowEndPopUp();
-        }
-
+        destroyPaddle();
+        Pause.instance.ShowEndPopUp();
     }
 
     public void DestroyCurrentGame()

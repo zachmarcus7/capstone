@@ -38,14 +38,15 @@ public class MLAgent : Agent
 		// check if any bricks have been broken
 		if (MLGameManager.instance.bricksBroken != previousBricksBroken)
 		{
-			AddReward(+2.25f);
+			//AddReward(+1f);
+			//Debug.Log("+1 for hitting brick");
 			previousBricksBroken = MLGameManager.instance.bricksBroken;
 		}
 
 		// check if any lives have been lost
 		if (MLGameManager.instance.lives != previousLives)
 		{
-			AddReward(-1f);
+			AddReward(-0.5f);
 			previousLives = MLGameManager.instance.lives;
 			EndEpisode();
 		}

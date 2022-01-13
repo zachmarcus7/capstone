@@ -13,7 +13,7 @@ public class MLGameManager : MonoBehaviour
     public Text scoresText;
     public Text livesText;
     public int lives;
-    public int bricksBroken = 0;
+    public int bricksBroken;
     Scene scene;
     public bool over;
     private int winningScore;
@@ -21,17 +21,18 @@ public class MLGameManager : MonoBehaviour
 
     private void Start()
     {
-        lives = 10;
+        lives = 5;
+        bricksBroken = 0;
         scoresText.text = "Score: " + score.ToString();
         livesText.text = "Lives: " + lives.ToString();
         scene = SceneManager.GetActiveScene();
         over = false;
 
         // set up winning score for different modes
-        if ((scene.name == "TwoPlayerMedium") || (scene.name == "TwoPlayerHard"))
-            winningScore = 43;
-        else
+        if (scene.name == "MLAgentScreen")
             winningScore = 55;
+        else
+            winningScore = 43;
     }
 
     private void Awake()
@@ -96,7 +97,7 @@ public class MLGameManager : MonoBehaviour
     {
         // check if we're in 1 player or 2 player mode
         if (scene.name == "MLAgentScreen")
-		{
+        {
             over = true;
             destroyBallAndPaddle();
             Pause.instance.ShowEndPopUp();
@@ -114,7 +115,7 @@ public class MLGameManager : MonoBehaviour
     }
 
     public void destroyBallAndPaddle()
-	{
+    {
         GameObject paddleObject = GameObject.Find("Agent (Paddle)");
         GameObject ballObject = GameObject.Find("MLBall");
         Destroy(paddleObject);
@@ -127,24 +128,24 @@ public class MLGameManager : MonoBehaviour
     }
 
     public void resetGame()
-	{
+    {
         GameObject bricks = this.gameObject.transform.GetChild(1).gameObject;
 
         // go through each row of bricks and reset them
         for (int i = 0; i < 5; i++)
-		{
+        {
             GameObject brickRow = bricks.gameObject.transform.GetChild(i).gameObject;
 
             // go through each brick in the row
             for (int j = 0; j < 11; j++)
-			{
+            {
                 GameObject brick = brickRow.gameObject.transform.GetChild(i).gameObject;
                 brick.SetActive(true);
                 brick.GetComponent<MLCollidable>().hasBeenHit = false;
 
             }
 
-		}
+        }
 
     }
 
