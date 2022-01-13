@@ -21,6 +21,7 @@ TagManager:
   - MLBall
   - GameOverHeader
   - MLBottom
+  - PlayerBottom
   layers:
   - Default
   - TransparentFX
