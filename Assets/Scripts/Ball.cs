@@ -149,7 +149,7 @@ public class Ball : MonoBehaviour
         }
         else
         {
-            // increase the ball's speed by the layer's index multipled by 0.5
+            // increase the ball's speed by the layer's index multipled by 0.2
             rigidBody.velocity = direction * (speed + (colorIndex * 0.2f));
             brickReference.layerReached[colorIndex] = true;
         }
