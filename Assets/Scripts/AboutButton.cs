@@ -9,6 +9,7 @@ public class AboutButton : MonoBehaviour
 	public Button aboutButton;
 	public AboutPopUp popUp;
 
+
 	void Start()
 	{
 		aboutButton = GetComponent<Button>();
@@ -19,4 +20,5 @@ public class AboutButton : MonoBehaviour
 	{
 		popUp.makeActive();
 	}
+
 }

@@ -19,14 +19,19 @@ public class MLGameManager : MonoBehaviour
     private int winningScore;
 
 
-    private void Start()
-    {
+    private void resetGame()
+	{
         lives = 5;
         bricksBroken = 0;
         scoresText.text = "Score: " + score.ToString();
         livesText.text = "Lives: " + lives.ToString();
         scene = SceneManager.GetActiveScene();
         over = false;
+    }
+
+    private void Start()
+    {
+        resetGame();
 
         // set up winning score for different modes
         if (scene.name == "MLAgentScreen")
@@ -70,11 +75,6 @@ public class MLGameManager : MonoBehaviour
             PlayerDeath();
     }
 
-    public void UpdateDisplay()
-    {
-
-    }
-
     public void PlayerWin()
     {
         // check if we're in 1 player or 2 player mode
@@ -106,10 +106,7 @@ public class MLGameManager : MonoBehaviour
         {
             over = true;
             destroyBallAndPaddle();
-
-            // check if the other player has finished their game
-            if (GameManager.instance.over)
-                Pause.instance.ShowEndPopUp();
+            Pause.instance.ShowWinnerPopUp();
         }
 
     }
@@ -125,28 +122,6 @@ public class MLGameManager : MonoBehaviour
     public void DestroyCurrentGame()
     {
         Destroy(gameObject);
-    }
-
-    public void resetGame()
-    {
-        GameObject bricks = this.gameObject.transform.GetChild(1).gameObject;
-
-        // go through each row of bricks and reset them
-        for (int i = 0; i < 5; i++)
-        {
-            GameObject brickRow = bricks.gameObject.transform.GetChild(i).gameObject;
-
-            // go through each brick in the row
-            for (int j = 0; j < 11; j++)
-            {
-                GameObject brick = brickRow.gameObject.transform.GetChild(i).gameObject;
-                brick.SetActive(true);
-                brick.GetComponent<MLCollidable>().hasBeenHit = false;
-
-            }
-
-        }
-
     }
 
 }

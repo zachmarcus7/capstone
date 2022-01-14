@@ -18,16 +18,16 @@ public class openingMenuBall : MonoBehaviour
     public float randXEnd;
     public float randYStart;
     public float randYEnd;
+    public Renderer visual;
 
 
     void Start()
     {
-        Renderer visual = GetComponent<Renderer>();
+        visual = GetComponent<Renderer>();
         rigidBody = GetComponent<Rigidbody2D>();
         visual.enabled = !visual.enabled;
         AutomaticLaunch();
     }
-
 
     void Update()
     {
@@ -43,10 +43,8 @@ public class openingMenuBall : MonoBehaviour
         previousVelocity = rigidBody.velocity;
     }
 
-
     private void AutomaticLaunch()
     {
-        Renderer visual = GetComponent<Renderer>();
         Vector2 direction = new Vector2(200, 15);  
         rigidBody.AddForce(direction);
         inPlay = true;

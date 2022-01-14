@@ -5,14 +5,15 @@ using UnityEngine;
 public class TwoPlayerPaddle : MonoBehaviour
 {
 
-    public float speed = 15;
+    public float speed;
     public float rightScreenEdge;
     public float leftScreenEdge;
     Vector3 lastMousePosition;
 
+
     void Start()
     {
-
+        speed = 15;
     }
 
     void WhenMouseIsMoving()

@@ -9,6 +9,7 @@ public class TwoPlayerBackButton : MonoBehaviour
 	public Button backButton;
 	public TwoPlayerPopUp popUp;
 
+
 	void Start()
 	{
 		backButton = GetComponent<Button>();
@@ -19,4 +20,5 @@ public class TwoPlayerBackButton : MonoBehaviour
 	{
 		popUp.makeInactive();
 	}
+
 }

@@ -39,7 +39,6 @@ public class MLAgent : Agent
 		if (MLGameManager.instance.bricksBroken != previousBricksBroken)
 		{
 			//AddReward(+1f);
-			//Debug.Log("+1 for hitting brick");
 			previousBricksBroken = MLGameManager.instance.bricksBroken;
 		}
 
@@ -98,7 +97,7 @@ public class MLAgent : Agent
 				break;
 		}
 
-		transform.localPosition += new Vector3(moveX * 2f, 0, 0) * Time.deltaTime * moveSpeed;   // added * 1.5f to make agent able to move faster
+		transform.localPosition += new Vector3(moveX * 3f, 0, 0) * Time.deltaTime * moveSpeed;
 	}
 
 	void OnCollisionEnter2D(Collision2D coll)
@@ -106,4 +105,5 @@ public class MLAgent : Agent
 		if (coll.gameObject.tag == "MLBall")
 			AddReward(+1.5f);
 	}
+
 }

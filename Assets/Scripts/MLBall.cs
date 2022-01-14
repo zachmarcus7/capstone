@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class MLBall : MonoBehaviour
 {
-    public float speed = 1f;
+    public float speed;
     public Rigidbody2D rigidBody;
     public Brick brickReference;
     public Vector3 previousVelocity;
@@ -18,22 +18,30 @@ public class MLBall : MonoBehaviour
     public MLGameManager gm;
     private Scene scene;
     public TwoPlayerMLCountdown countdown;
+    public Renderer visual;
 
 
-    void Start()
+    private void getComponents()
     {
         // get necessary components
         scene = SceneManager.GetActiveScene();
-        Renderer spriteRenderer = GetComponent<Renderer>();
+        Renderer visual = GetComponent<Renderer>();
         rigidBody = GetComponent<Rigidbody2D>();
-
-        // set up bricks for ball speed
         brickReference = new Brick();
+    }
 
+    private void initializeCountdown()
+    {
         // start countdown to ball launch
-        spriteRenderer.enabled = !spriteRenderer.enabled;
+        visual.enabled = !visual.enabled;
         transform.position = generateBallPosition();
         countdown.activateCountdown();
+    }
+
+    void Start()
+    {
+        getComponents();
+        initializeCountdown();
     }
 
     void Update()
@@ -70,18 +78,8 @@ public class MLBall : MonoBehaviour
 
     }
 
-    private void LaunchBall()
-    {
-        Renderer visual = GetComponent<Renderer>();
-        Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-100, 100), -108);
-        rigidBody.AddForce(direction);
-        inPlay = true;
-        visual.enabled = true;
-    }
-
     public void AutomaticLaunch()
     {
-        Renderer visual = GetComponent<Renderer>();
         Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-200, 200), -108);
         rigidBody.AddForce(direction);
         inPlay = true;

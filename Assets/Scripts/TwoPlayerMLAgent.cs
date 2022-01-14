@@ -95,15 +95,13 @@ public class TwoPlayerMLAgent : Agent
 				break;
 		}
 
-		transform.localPosition += new Vector3(moveX * 2.5f, 0, 0) * Time.deltaTime * moveSpeed;   // added * 2.5f to make agent able to move faster
+		transform.localPosition += new Vector3(moveX * 3f, 0, 0) * Time.deltaTime * moveSpeed;   
 	}
 
 	void OnCollisionEnter2D(Collision2D coll)
 	{
 		if (coll.gameObject.tag == "MLBall")
-		{
 			AddReward(+1f);
-		}
-
 	}
+
 }

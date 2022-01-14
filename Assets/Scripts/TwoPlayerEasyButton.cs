@@ -8,6 +8,7 @@ public class TwoPlayerEasyButton : MonoBehaviour
 {
 	public Button easyButton;
 
+
 	void Start()
 	{
 		easyButton = GetComponent<Button>();
@@ -18,4 +19,5 @@ public class TwoPlayerEasyButton : MonoBehaviour
 	{
 		SceneManager.LoadScene("TwoPlayerEasy");
 	}
+
 }

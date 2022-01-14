@@ -18,26 +18,33 @@ public class TwoPlayerMLBall : MonoBehaviour
     public MLGameManager gm;
     private Scene scene;
     public TwoPlayerMLCountdown countdown;
-    int startDirection;
+    public int startDirection;
+    public Renderer visual;
 
 
-    void Start()
+    private void getComponents()
     {
         // get necessary components
         scene = SceneManager.GetActiveScene();
-        Renderer spriteRenderer = GetComponent<Renderer>();
+        visual = GetComponent<Renderer>();
         rigidBody = GetComponent<Rigidbody2D>();
-
-        // set up bricks for ball speed
         brickReference = new Brick();
+    }
 
-        // set startDirection depending on scene
-        startDirection = (scene.name == "MLAgentScreen") ? 108 : -108;
-
+    private void initializeCountdown()
+    {
         // start countdown to ball launch
-        spriteRenderer.enabled = !spriteRenderer.enabled;
+        visual.enabled = !visual.enabled;
         transform.position = generateBallPosition();
         countdown.activateCountdown();
+    }
+
+    void Start()
+    {
+        // set startDirection depending on scene
+        startDirection = (scene.name == "MLAgentScreen") ? 108 : -108;
+        getComponents();
+        initializeCountdown();
     }
 
     void Update()

@@ -18,18 +18,23 @@ public class GameManager : MonoBehaviour
     private int winningScore;
 
 
-    private void Start()
+    private void resetGame()
     {
         lives = 5;
         scoresText.text = "Score: " + score.ToString();
         livesText.text = "Lives: " + lives.ToString();
         scene = SceneManager.GetActiveScene();
         over = false;
+    }
+
+    private void Start()
+    {
+        resetGame();
 
         // set up winning score for different modes
         if (scene.name == "Main")
-            winningScore = 55;                       
-		else
+            winningScore = 55;
+        else
             winningScore = 43;
     }
 

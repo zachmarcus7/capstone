@@ -8,6 +8,7 @@ public class TwoPlayerMediumButton : MonoBehaviour
 {
 	public Button mediumButton;
 
+
 	void Start()
 	{
 		mediumButton = GetComponent<Button>();
@@ -18,4 +19,5 @@ public class TwoPlayerMediumButton : MonoBehaviour
 	{
 		SceneManager.LoadScene("TwoPlayerMedium");
 	}
+
 }

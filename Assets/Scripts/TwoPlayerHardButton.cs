@@ -8,6 +8,7 @@ public class TwoPlayerHardButton : MonoBehaviour
 {
 	public Button hardButton;
 
+
 	void Start()
 	{
 		hardButton = GetComponent<Button>();
@@ -18,4 +19,5 @@ public class TwoPlayerHardButton : MonoBehaviour
 	{
 		SceneManager.LoadScene("TwoPlayerHard");
 	}
+
 }

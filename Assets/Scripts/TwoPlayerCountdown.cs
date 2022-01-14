@@ -12,6 +12,7 @@ public class TwoPlayerCountdown : MonoBehaviour
 	public TwoPlayerBall ball;
 	public GameObject countdown;
 
+
 	void Start()
 	{
 		currentTime = startingTime;
@@ -44,4 +45,5 @@ public class TwoPlayerCountdown : MonoBehaviour
 		active = true;
 		countdown.SetActive(true);
 	}
+
 }

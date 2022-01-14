@@ -13,6 +13,7 @@ public class Pause : MonoBehaviour
 	private GameObject gameOverHeader;
 	private GameObject winnerHeader;
 
+
 	void Start()
 	{
 		scene = SceneManager.GetActiveScene();

@@ -6,14 +6,10 @@ public class TwoPlayerCollidable : MonoBehaviour
 {
     public bool hasBeenHit;
 
+
     void Start()
     {
         hasBeenHit = false;
-    }
-
-    void Update()
-    {
-
     }
 
     public void OnCollisionEnter2D(Collision2D coll)
@@ -33,5 +29,6 @@ public class TwoPlayerCollidable : MonoBehaviour
 
         
     }
+
 }
 

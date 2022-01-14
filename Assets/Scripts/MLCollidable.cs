@@ -8,14 +8,10 @@ public class MLCollidable : MonoBehaviour
     public int xPos;
     public int yPos;
 
+
     void Start()
     {
         hasBeenHit = false;
-    }
-
-    void Update()
-    {
-
     }
 
     void OnCollisionEnter2D(Collision2D coll)
@@ -34,7 +30,5 @@ public class MLCollidable : MonoBehaviour
             }
         }
     }
-
-
 
 }

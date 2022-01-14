@@ -8,7 +8,7 @@ using System.Linq;
 
 public class Ball : MonoBehaviour
 {
-    public float speed = 10;
+    public float speed;
     public Rigidbody2D rigidBody;
     public Brick brickReference;
     public Vector3 previousVelocity;
@@ -22,23 +22,31 @@ public class Ball : MonoBehaviour
     public GameManager gm;
     private Scene scene;
     public Countdown countdown;
+    public Renderer visual;
 
 
-    void Start()
-    {
+    private void getComponents()
+	{
         // get necessary components
         scene = SceneManager.GetActiveScene();
-        Renderer visual = GetComponent<Renderer>();
+        visual = GetComponent<Renderer>();
         rigidBody = GetComponent<Rigidbody2D>();
-
-        // set up bricks for ball speed
         brickReference = new Brick();
+    }
 
+    private void initializeCountdown()
+	{
         // start countdown to ball launch
         visual.enabled = !visual.enabled;
         Tuple<float, float> ballposition = generateBallPosition();
         transform.position = new Vector3(ballposition.Item1, ballposition.Item2);
         countdown.activateCountdown();
+    }
+
+    void Start()
+    {
+        getComponents();
+        initializeCountdown();
     }
 
     void Update()
@@ -147,34 +155,6 @@ public class Ball : MonoBehaviour
             rigidBody.velocity = direction * (speed + (colorIndex * 0.2f));
             brickReference.layerReached[colorIndex] = true;
         }
-    }
-
-    void TwoPlayerUpdate()
-    {
-        if (!inPlay)
-        {
-            Tuple<float, float> ballposition = generateBallPosition();
-            transform.position = new Vector3(ballposition.Item1, ballposition.Item2);
-            AutomaticLaunch();
-        }
-        else
-        {
-            float yValue;
-            if (rigidBody.velocity.y > -1 && rigidBody.velocity.y < 1)
-            {
-                if (rigidBody.velocity.y <= 0)
-                {
-                    yValue = -1f;
-                }
-                else
-                {
-                    yValue = 1f;
-                }
-                Vector2 minimumVelocity = new Vector2(0, yValue);
-                rigidBody.AddForce(minimumVelocity);
-            }
-        }
-        previousVelocity = rigidBody.velocity;
     }
 
 }

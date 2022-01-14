@@ -5,16 +5,17 @@ using UnityEngine.UI;
 
 public class Countdown : MonoBehaviour
 {
-	public static bool active = false;
-	public float currentTime  = 0f;
-	public float startingTime = 3f;
+	public static bool active;
+	public float currentTime;
 	public Text countdownText;
 	public Ball ball;
 	public GameObject countdown;
 
+
 	void Start()
 	{
-		currentTime = startingTime;
+		active = false;
+		currentTime = 3f;
 	}
 
 	void Update()
@@ -44,4 +45,5 @@ public class Countdown : MonoBehaviour
 		active = true;
 		countdown.SetActive(true);
 	}
+
 }

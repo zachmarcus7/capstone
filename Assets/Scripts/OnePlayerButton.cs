@@ -8,6 +8,7 @@ public class OnePlayerButton : MonoBehaviour
 {
 	public Button onePlayerButton;
 
+
 	void Start()
 	{
 		onePlayerButton = GetComponent<Button>();
@@ -18,4 +19,5 @@ public class OnePlayerButton : MonoBehaviour
 	{
 		SceneManager.LoadScene("Main");
 	}
+
 }

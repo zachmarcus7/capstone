@@ -31,4 +31,5 @@ public class AboutPopUp : MonoBehaviour
 	{
         active = false;
 	}
+
 }

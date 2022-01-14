@@ -8,6 +8,7 @@ public class MLPlayerButton : MonoBehaviour
 {
 	public Button mlPlayerButton;
 
+
 	void Start()
 	{
 		mlPlayerButton = GetComponent<Button>();
@@ -18,4 +19,5 @@ public class MLPlayerButton : MonoBehaviour
 	{
 		SceneManager.LoadScene("MLAgentScreen");
 	}
+
 }
