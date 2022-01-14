@@ -26,7 +26,7 @@ public class Ball : MonoBehaviour
 
 
     private void getComponents()
-	{
+    {
         // get necessary components
         scene = SceneManager.GetActiveScene();
         visual = GetComponent<Renderer>();
@@ -35,7 +35,7 @@ public class Ball : MonoBehaviour
     }
 
     private void initializeCountdown()
-	{
+    {
         // start countdown to ball launch
         visual.enabled = !visual.enabled;
         Tuple<float, float> ballposition = generateBallPosition();
@@ -54,7 +54,7 @@ public class Ball : MonoBehaviour
         if (GameManager.instance.over)
             return;
         else
-		{
+        {
             if (!inPlay)
             {
                 Tuple<float, float> ballposition = generateBallPosition();
@@ -94,13 +94,13 @@ public class Ball : MonoBehaviour
     private Tuple<float, float> generateBallPosition()
     {
         if (scene.name == "TwoPlayerScreen")
-		{
+        {
             randomXCoord = UnityEngine.Random.Range(randXStart, randXEnd);
             randomYCoord = -0.9f;
             return new Tuple<float, float>(randomXCoord, randomYCoord);
         }
         else
-		{
+        {
             randomXCoord = UnityEngine.Random.Range(5f, 10f);
             randomYCoord = 1.5f;
             return new Tuple<float, float>(randomXCoord, randomYCoord);
