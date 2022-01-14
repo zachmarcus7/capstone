@@ -89,13 +89,13 @@ public class MLBall : MonoBehaviour
     private Vector3 generateBallPosition()
     {
         if (scene.name == "MlAgentScreen")
-		{
+        {
             randomXCoord = UnityEngine.Random.Range(2f, 9f);
             randomYCoord = 6.5f;
             return new Vector3(randomXCoord, randomYCoord, 0);
         }
         else
-		{
+        {
             randomXCoord = UnityEngine.Random.Range(2f, 9f);
             randomYCoord = 6.5f;
             return new Vector3(randomXCoord, randomYCoord, 0);
