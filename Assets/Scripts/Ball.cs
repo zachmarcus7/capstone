@@ -38,8 +38,7 @@ public class Ball : MonoBehaviour
     {
         // start countdown to ball launch
         visual.enabled = !visual.enabled;
-        Tuple<float, float> ballposition = generateBallPosition();
-        transform.position = new Vector3(ballposition.Item1, ballposition.Item2);
+        transform.position = generateBallPosition();
         countdown.activateCountdown();
     }
 
@@ -57,8 +56,7 @@ public class Ball : MonoBehaviour
         {
             if (!inPlay)
             {
-                Tuple<float, float> ballposition = generateBallPosition();
-                transform.position = new Vector3(ballposition.Item1, ballposition.Item2);
+                transform.position = generateBallPosition();
                 countdown.activateCountdown();
             }
             else
@@ -91,19 +89,19 @@ public class Ball : MonoBehaviour
         visual.enabled = true;
     }
 
-    private Tuple<float, float> generateBallPosition()
+    private Vector3 generateBallPosition()
     {
         if (scene.name == "TwoPlayerScreen")
         {
             randomXCoord = UnityEngine.Random.Range(randXStart, randXEnd);
             randomYCoord = -0.9f;
-            return new Tuple<float, float>(randomXCoord, randomYCoord);
+            return new Vector3(randomXCoord, randomYCoord, 0f);
         }
         else
         {
             randomXCoord = UnityEngine.Random.Range(5f, 10f);
             randomYCoord = 1.5f;
-            return new Tuple<float, float>(randomXCoord, randomYCoord);
+            return new Vector3(randomXCoord, randomYCoord, 0f);
         }
     }
 
