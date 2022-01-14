@@ -8,7 +8,7 @@ public class TwoPlayerPaddle : MonoBehaviour
     public float speed;
     public float rightScreenEdge;
     public float leftScreenEdge;
-    Vector3 lastMousePosition;
+    private Vector3 lastMousePosition;
 
 
     void Start()
@@ -51,5 +51,4 @@ public class TwoPlayerPaddle : MonoBehaviour
         if (transform.localPosition.x > rightScreenEdge)
             transform.localPosition = new Vector3(rightScreenEdge, 0.68f, 0);
     }
-
 }

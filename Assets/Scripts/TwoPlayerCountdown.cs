@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 public class TwoPlayerCountdown : MonoBehaviour
 {
-	public static bool active = false;
-	public float currentTime = 0f;
-	public float startingTime = 3f;
+	public static bool active;
+	public float currentTime;
 	public Text countdownText;
 	public TwoPlayerBall ball;
 	public GameObject countdown;
@@ -15,7 +14,8 @@ public class TwoPlayerCountdown : MonoBehaviour
 
 	void Start()
 	{
-		currentTime = startingTime;
+		active = false;
+		currentTime = 3f;
 	}
 
 	void Update()
@@ -45,5 +45,4 @@ public class TwoPlayerCountdown : MonoBehaviour
 		active = true;
 		countdown.SetActive(true);
 	}
-
 }

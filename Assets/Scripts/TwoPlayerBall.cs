@@ -20,9 +20,9 @@ public class TwoPlayerBall : MonoBehaviour
     public float randYStart;
     public float randYEnd;
     public GameManager gm;
-    private Scene scene;
     public TwoPlayerCountdown countdown;
     public Renderer visual;
+    private Scene scene;
 
 
     private void getComponents()
@@ -168,5 +168,4 @@ public class TwoPlayerBall : MonoBehaviour
             brickReference.layerReached[colorIndex] = true;
         }
     }
-
 }

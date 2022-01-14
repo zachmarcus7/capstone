@@ -20,9 +20,9 @@ public class Ball : MonoBehaviour
     public float randYStart;
     public float randYEnd;
     public GameManager gm;
-    private Scene scene;
     public Countdown countdown;
     public Renderer visual;
+    private Scene scene;
 
 
     private void getComponents()
@@ -52,9 +52,7 @@ public class Ball : MonoBehaviour
     void Update()
     {
         if (GameManager.instance.over)
-		{
             return;
-		}
         else
 		{
             if (!inPlay)
@@ -156,5 +154,4 @@ public class Ball : MonoBehaviour
             brickReference.layerReached[colorIndex] = true;
         }
     }
-
 }

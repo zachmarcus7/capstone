@@ -20,5 +20,4 @@ public class AboutButton : MonoBehaviour
 	{
 		popUp.makeActive();
 	}
-
 }

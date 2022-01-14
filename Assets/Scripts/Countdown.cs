@@ -45,5 +45,4 @@ public class Countdown : MonoBehaviour
 		active = true;
 		countdown.SetActive(true);
 	}
-
 }

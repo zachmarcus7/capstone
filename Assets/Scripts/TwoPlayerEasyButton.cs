@@ -19,5 +19,4 @@ public class TwoPlayerEasyButton : MonoBehaviour
 	{
 		SceneManager.LoadScene("TwoPlayerEasy");
 	}
-
 }

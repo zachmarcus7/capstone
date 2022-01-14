@@ -20,5 +20,4 @@ public class TwoPlayerBackButton : MonoBehaviour
 	{
 		popUp.makeInactive();
 	}
-
 }

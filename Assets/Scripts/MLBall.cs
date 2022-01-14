@@ -16,9 +16,9 @@ public class MLBall : MonoBehaviour
     public float randomXCoord;
     public float randomYCoord;
     public MLGameManager gm;
-    private Scene scene;
     public TwoPlayerMLCountdown countdown;
     public Renderer visual;
+    private Scene scene;
 
 
     private void getComponents()
@@ -156,6 +156,5 @@ public class MLBall : MonoBehaviour
             brickReference.layerReached[colorIndex] = true;
         }
     }
-
 }
 

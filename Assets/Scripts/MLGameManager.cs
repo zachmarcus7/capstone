@@ -14,8 +14,8 @@ public class MLGameManager : MonoBehaviour
     public Text livesText;
     public int lives;
     public int bricksBroken;
-    Scene scene;
     public bool over;
+    private Scene scene;
     private int winningScore;
 
 
@@ -123,5 +123,4 @@ public class MLGameManager : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
 }

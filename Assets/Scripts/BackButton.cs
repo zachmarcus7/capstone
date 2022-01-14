@@ -20,5 +20,4 @@ public class BackButton : MonoBehaviour
 	{
 		popUp.makeInactive();
 	}
-
 }

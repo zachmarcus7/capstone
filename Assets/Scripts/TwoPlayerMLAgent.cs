@@ -10,20 +10,23 @@ public class TwoPlayerMLAgent : Agent
 {
 	public static TwoPlayerMLAgent instance;
 	public GameObject target;
-	float moveSpeed = 5f;
 	public float rightScreenEdge;
 	public float leftScreenEdge;
-	public int previousBricksBroken = 0;
-	public int previousLives = 5;
-	Vector3 previousBallLocation;
-	Vector3 changeInBallLocation;
-	float previousPaddlePosition;
+	public int previousBricksBroken;
+	public int previousLives;
 	public float input;
 	public TwoPlayerMLBall ball;
+	private float moveSpeed;
+	private float previousPaddlePosition;
+	private Vector3 previousBallLocation;
+	private Vector3 changeInBallLocation;
 
 
 	void Awake()
 	{
+		previousLives = 5;
+		previousBricksBroken = 0;
+		moveSpeed = 5f;
 		instance = this;
 	}
 
@@ -103,5 +106,4 @@ public class TwoPlayerMLAgent : Agent
 		if (coll.gameObject.tag == "MLBall")
 			AddReward(+1f);
 	}
-
 }

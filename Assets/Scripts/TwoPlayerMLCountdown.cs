@@ -45,5 +45,4 @@ public class TwoPlayerMLCountdown : MonoBehaviour
 		active = true;
 		countdown.SetActive(true);
 	}
-
 }

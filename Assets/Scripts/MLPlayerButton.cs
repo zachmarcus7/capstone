@@ -19,5 +19,4 @@ public class MLPlayerButton : MonoBehaviour
 	{
 		SceneManager.LoadScene("MLAgentScreen");
 	}
-
 }

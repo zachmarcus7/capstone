@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Pause : MonoBehaviour
 {
 	public static Pause instance;
-	public static bool active = false;
+	public static bool active;
 	public GameObject menu;
 	private Scene scene;
 	private GameObject gameOverHeader;
@@ -16,6 +16,7 @@ public class Pause : MonoBehaviour
 
 	void Start()
 	{
+		active = false;
 		scene = SceneManager.GetActiveScene();
 		instance = this;
 	}
@@ -110,5 +111,4 @@ public class Pause : MonoBehaviour
 			SceneManager.LoadScene("OpeningMenu");
 		}
 	}
-
 }

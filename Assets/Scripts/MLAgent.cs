@@ -10,20 +10,23 @@ public class MLAgent : Agent
 {
 	public static MLAgent instance;
 	public GameObject target;
-	float moveSpeed = 5f;
+	public float moveSpeed;
 	public float rightScreenEdge;
 	public float leftScreenEdge;
-	public int previousBricksBroken = 0;
-	public int previousLives = 5;
-	Vector3 previousBallLocation;
-	Vector3 changeInBallLocation;
-	float previousPaddlePosition;
-	private Scene scene;
+	public int previousBricksBroken;
+	public int previousLives;
+	public float previousPaddlePosition;
 	public float input;
+	private Vector3 previousBallLocation;
+	private Vector3 changeInBallLocation;
+	private Scene scene;
 
 
 	void Awake()
 	{
+		previousBricksBroken = 0;
+		previousLives = 5;
+		moveSpeed = 5f;
 		instance = this;
 		scene = SceneManager.GetActiveScene();
 	}
@@ -105,5 +108,4 @@ public class MLAgent : Agent
 		if (coll.gameObject.tag == "MLBall")
 			AddReward(+1.5f);
 	}
-
 }

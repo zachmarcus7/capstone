@@ -19,5 +19,4 @@ public class TwoPlayerHardButton : MonoBehaviour
 	{
 		SceneManager.LoadScene("TwoPlayerHard");
 	}
-
 }

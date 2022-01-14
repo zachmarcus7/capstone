@@ -19,5 +19,4 @@ public class OnePlayerButton : MonoBehaviour
 	{
 		SceneManager.LoadScene("Main");
 	}
-
 }

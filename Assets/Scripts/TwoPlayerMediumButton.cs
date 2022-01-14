@@ -19,5 +19,4 @@ public class TwoPlayerMediumButton : MonoBehaviour
 	{
 		SceneManager.LoadScene("TwoPlayerMedium");
 	}
-
 }

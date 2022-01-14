@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    public float speed = 15;
+    public float speed;
     public float rightScreenEdge;
     public float leftScreenEdge;
-    Vector3 lastMousePosition;
+    private Vector3 lastMousePosition;
 
+    void start()
+	{
+        speed = 15;
+	}
 
     void WhenMouseIsMoving()
     {
@@ -45,5 +49,4 @@ public class Paddle : MonoBehaviour
         if (transform.localPosition.x > rightScreenEdge)
             transform.localPosition = new Vector3(rightScreenEdge, transform.position.y, 0); 
     }
-
 }

@@ -50,5 +50,4 @@ public class openingMenuBall : MonoBehaviour
         inPlay = true;
         visual.enabled = true;
     }
-
 }
