@@ -1082,6 +1082,8 @@ MonoBehaviour:
   randomYCoord: 0
   gm: {fileID: 750711412}
   countdown: {fileID: 992941699}
+  startDirection: 0
+  visual: {fileID: 0}
 --- !u!50 &280539027
 Rigidbody2D:
   serializedVersion: 4
@@ -10047,8 +10049,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701585640}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 0.68549967, z: 0}
-  m_LocalScale: {x: 1.3, y: 1, z: 1}
+  m_LocalPosition: {x: 0.05, y: 0.68549967, z: 0}
+  m_LocalScale: {x: 1.6, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 750711413}
   m_RootOrder: 0
@@ -10110,10 +10112,12 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   target: {fileID: 280539023}
-  rightScreenEdge: 10.7
-  leftScreenEdge: -0.1
+  moveSpeed: 0
+  rightScreenEdge: 10.56
+  leftScreenEdge: 0.05
   previousBricksBroken: 0
   previousLives: 5000
+  previousPaddlePosition: 0
   input: 0
 --- !u!114 &1701585646
 MonoBehaviour:
@@ -12123,8 +12127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18908d2528019ce49b8f9056e0a49424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button_one: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
-  button_two: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
+  buttonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
+  buttonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
   image: {fileID: 0}
 --- !u!114 &1425560868192500090
 MonoBehaviour:
@@ -12763,8 +12767,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18908d2528019ce49b8f9056e0a49424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button_one: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
-  button_two: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
+  buttonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
+  buttonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
   image: {fileID: 0}
 --- !u!114 &1425560869373546020
 MonoBehaviour:

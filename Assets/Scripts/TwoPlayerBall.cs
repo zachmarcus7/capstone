@@ -86,7 +86,7 @@ public class TwoPlayerBall : MonoBehaviour
     public void AutomaticLaunch()
     {
         Renderer visual = GetComponent<Renderer>();
-        Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-200, 200), 108);
+        Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-260, 260), 170);
         rigidBody.AddForce(direction);
         inPlay = true;
         visual.enabled = true;
