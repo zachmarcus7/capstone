@@ -32,12 +32,15 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/TwoPlayerEasy.unity
-    guid: 9460df14db5c8da46b5d9b6e9d334bae
+    guid: a824e4bac3642114dbd49f5b2414d778
   - enabled: 1
     path: Assets/Scenes/TwoPlayerMedium.unity
-    guid: a824e4bac3642114dbd49f5b2414d778
+    guid: af1cb9d3cfdb0df458df846f0cfc6a03
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
