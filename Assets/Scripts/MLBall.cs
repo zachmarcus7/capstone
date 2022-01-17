@@ -35,7 +35,8 @@ public class MLBall : MonoBehaviour
         // start countdown to ball launch
         visual.enabled = !visual.enabled;
         transform.position = generateBallPosition();
-        countdown.activateCountdown();
+        //countdown.activateCountdown();                                   // CHANGED FOR TRAINING
+        AutomaticLaunch();
     }
 
     void Start()
@@ -80,7 +81,7 @@ public class MLBall : MonoBehaviour
 
     public void AutomaticLaunch()
     {
-        Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-200, 200), -108);
+        Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-200, 200), -108);  // CHANGED FOR TRAINING
         rigidBody.AddForce(direction);
         inPlay = true;
         visual.enabled = true;

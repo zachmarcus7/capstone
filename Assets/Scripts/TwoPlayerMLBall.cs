@@ -9,16 +9,16 @@ using UnityEngine.SceneManagement;
 public class TwoPlayerMLBall : MonoBehaviour
 {
     public float speed = 1f;
-    public Rigidbody2D rigidBody;
     public Brick brickReference;
-    public Vector3 previousVelocity;
-    public bool inPlay;
     public float randomXCoord;
     public float randomYCoord;
     public MLGameManager gm;
     public TwoPlayerMLCountdown countdown;
-    public int startDirection;
-    public Renderer visual;
+    private Rigidbody2D rigidBody;
+    private Vector3 previousVelocity;
+    private bool inPlay;
+    private int startDirection;
+    private Renderer visual;
     private Scene scene;
 
 
@@ -36,14 +36,20 @@ public class TwoPlayerMLBall : MonoBehaviour
         // start countdown to ball launch
         visual.enabled = !visual.enabled;
         transform.position = generateBallPosition();
-        countdown.activateCountdown();
+        //countdown.activateCountdown();                                   // CHANGED FOR TRAINING
+        AutomaticLaunch();
     }
 
     void Start()
     {
-        // set startDirection depending on scene
-        startDirection = (scene.name == "MLAgentScreen") ? 108 : -108;
         getComponents();
+
+        // set startDirection depending on scene
+        if (scene.name == "MLAgentScreen")
+            startDirection = 200;
+        else
+            startDirection = -200;    // CHANGED FOR TRAINING
+
         initializeCountdown();
     }
 
@@ -58,7 +64,8 @@ public class TwoPlayerMLBall : MonoBehaviour
             if (!inPlay)
             {
                 transform.position = generateBallPosition();
-                countdown.activateCountdown();
+                //countdown.activateCountdown();
+                AutomaticLaunch();                                       // CHANGED FOR TRAINING
             }
             else
             {
@@ -79,15 +86,6 @@ public class TwoPlayerMLBall : MonoBehaviour
             previousVelocity = rigidBody.velocity;
         }
 
-    }
-
-    private void LaunchBall()
-    {
-        Renderer visual = GetComponent<Renderer>();
-        Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-100, 100), startDirection);
-        rigidBody.AddForce(direction);
-        inPlay = true;
-        visual.enabled = true;
     }
 
     public void AutomaticLaunch()
@@ -165,7 +163,6 @@ public class TwoPlayerMLBall : MonoBehaviour
         {
             // increase the ball's speed by the layer's index multipled by 0.2
             rigidBody.velocity = direction * (speed + (colorIndex * 0.2f));
-
             brickReference.layerReached[colorIndex] = true;
         }
     }

@@ -48,7 +48,7 @@ public class MLAgent : Agent
 		// check if any lives have been lost
 		if (MLGameManager.instance.lives != previousLives)
 		{
-			AddReward(-0.5f);
+			//AddReward(-0.5f);
 			previousLives = MLGameManager.instance.lives;
 			EndEpisode();
 		}
@@ -106,6 +106,9 @@ public class MLAgent : Agent
 	void OnCollisionEnter2D(Collision2D coll)
 	{
 		if (coll.gameObject.tag == "MLBall")
+		{
 			AddReward(+1.5f);
+			Debug.Log("+1.5 for hitting ball");
+		}
 	}
 }

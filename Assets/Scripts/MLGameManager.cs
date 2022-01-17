@@ -21,7 +21,7 @@ public class MLGameManager : MonoBehaviour
 
     private void resetGame()
 	{
-        lives = 5;
+        lives = 1000000;                                                // CHANGED FOR TRAINING
         bricksBroken = 0;
         scoresText.text = "Score: " + score.ToString();
         livesText.text = "Lives: " + lives.ToString();
@@ -33,7 +33,7 @@ public class MLGameManager : MonoBehaviour
     {
         resetGame();
 
-        // set up winning score for different modes
+        // set up winning score for different modes                   
         if (scene.name == "MLAgentScreen")
             winningScore = 55;
         else

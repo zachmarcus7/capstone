@@ -8,22 +8,26 @@ using System.Linq;
 
 public class TwoPlayerBall : MonoBehaviour
 {
-    public float speed = 10;
-    public Rigidbody2D rigidBody;
-    public Brick brickReference;
-    public Vector3 previousVelocity;
-    public bool inPlay;
-    public float randomXCoord;
     public float randomYCoord;
     public float randXStart;
     public float randXEnd;
-    public float randYStart;
-    public float randYEnd;
     public GameManager gm;
     public TwoPlayerCountdown countdown;
-    public Renderer visual;
-    private Scene scene;
+    protected float randomXCoord;
+    protected Brick brickReference;
+    protected Vector3 previousVelocity;
+    protected Rigidbody2D rigidBody;
+    protected bool inPlay;
+    protected Renderer visual;
+    protected Scene scene;
+    protected float yValue;
 
+
+    void Start()
+    {
+        getComponents();
+        initializeCountdown();
+    }
 
     private void getComponents()
     {
@@ -38,52 +42,48 @@ public class TwoPlayerBall : MonoBehaviour
     {
         // start countdown to ball launch
         visual.enabled = !visual.enabled;
-        Tuple<float, float> ballposition = generateBallPosition();
-        transform.position = new Vector3(ballposition.Item1, ballposition.Item2);
+        transform.position = generateBallPosition();
         countdown.activateCountdown();
-    }
-
-    void Start()
-    {
-        getComponents();
-        initializeCountdown();
     }
 
     void Update()
     {
         if (GameManager.instance.over)
-        {
             return;
+
+        if (!inPlay)
+        {
+            // reset ball and start countdown
+            transform.position = generateBallPosition();
+            countdown.activateCountdown();
         }
         else
         {
-            if (!inPlay)
-            {
-                Tuple<float, float> ballposition = generateBallPosition();
-                transform.position = new Vector3(ballposition.Item1, ballposition.Item2);
-                countdown.activateCountdown();
-            }
-            else
-            {
-                float yValue;
-                if (rigidBody.velocity.y > -1 && rigidBody.velocity.y < 1)
-                {
-                    // check if the ball is moving up or down
-                    if (rigidBody.velocity.y <= 0)
-                        yValue = -1f;
-                    else
-                        yValue = 1f;
-
-                    // make the ball go the minimum speed
-                    Vector2 minimumVelocity = new Vector2(0, yValue);
-                    rigidBody.AddForce(minimumVelocity);
-                }
-            }
-            previousVelocity = rigidBody.velocity;
+            // if ball is going too slow, make sure it goes back to min speed
+            if (rigidBody.velocity.y > -1 && rigidBody.velocity.y < 1)
+                applyMinSpeed();
         }
+        previousVelocity = rigidBody.velocity;
     }
 
-    public void AutomaticLaunch()
+    private float upOrDown()
+    {
+        // check if the ball is moving up or down
+        if (rigidBody.velocity.y <= 0)
+            return -1f;
+        else
+            return 1f;
+    }
+
+    private void applyMinSpeed()
+    {
+        // make the ball go minimum speed
+        yValue = upOrDown();
+        Vector2 minimumVelocity = new Vector2(0, yValue);
+        rigidBody.AddForce(minimumVelocity);
+    }
+
+    public virtual void AutomaticLaunch()
     {
         Renderer visual = GetComponent<Renderer>();
         Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-260, 260), 170);
@@ -92,27 +92,10 @@ public class TwoPlayerBall : MonoBehaviour
         visual.enabled = true;
     }
 
-    private Tuple<float, float> generateBallPosition()
+    private Vector3 generateBallPosition()
     {
         randomXCoord = UnityEngine.Random.Range(randXStart, randXEnd);
-        randomYCoord = 1f;
-        return new Tuple<float, float>(randomXCoord, randomYCoord);
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        // check if ball was lost
-        if (other.CompareTag("Bottom"))
-        {   // decrement lives
-            Renderer visual = GetComponent<Renderer>();
-            gm.DecrementLives();
-            rigidBody.velocity = Vector2.zero;
-            inPlay = false;
-            visual.enabled = !visual.enabled;
-
-            // reset brick layers for speed
-            brickReference.resetLayers();
-        }
+        return new Vector3(randomXCoord, randomYCoord, 0);
     }
 
     void decrementLives()

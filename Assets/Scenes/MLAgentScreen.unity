@@ -223,8 +223,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 2
-  yPos: 8
 --- !u!1001 &26423140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -325,8 +323,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 1
-  yPos: 8
 --- !u!1001 &36502784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -427,8 +423,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 1
-  yPos: 2
 --- !u!1001 &44376201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -529,8 +523,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 3
-  yPos: 1
 --- !u!1001 &108130561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -631,8 +623,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 3
-  yPos: 0
 --- !u!1001 &134643504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -733,8 +723,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 2
-  yPos: 7
 --- !u!1001 &148375475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -835,8 +823,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 0
-  yPos: 8
 --- !u!1 &234306133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,15 +1061,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  rigidBody: {fileID: 0}
-  previousVelocity: {x: 0, y: 0, z: 0}
-  inPlay: 0
   randomXCoord: 0
   randomYCoord: 0
   gm: {fileID: 750711412}
   countdown: {fileID: 992941699}
-  startDirection: 0
-  visual: {fileID: 0}
 --- !u!50 &280539027
 Rigidbody2D:
   serializedVersion: 4
@@ -1270,8 +1251,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 1
-  yPos: 1
 --- !u!1001 &289477632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1372,8 +1351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 4
-  yPos: 5
 --- !u!1001 &298721382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1474,8 +1451,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 4
-  yPos: 0
 --- !u!1001 &330105764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1576,8 +1551,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 0
-  yPos: 5
 --- !u!1001 &385486207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1678,8 +1651,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 3
-  yPos: 9
 --- !u!1 &396327574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,8 +1914,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 0
-  yPos: 3
 --- !u!1 &439892866
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,8 +2055,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 2
-  yPos: 1
 --- !u!1001 &650716297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2188,8 +2155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 2
-  yPos: 5
 --- !u!1001 &683531921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2290,8 +2255,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 3
-  yPos: 2
 --- !u!1 &684545234
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,8 +2464,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 2
-  yPos: 4
 --- !u!1 &750711411
 GameObject:
   m_ObjectHideFlags: 0
@@ -2697,8 +2658,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 0
-  yPos: 4
 --- !u!1001 &878100983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2814,8 +2773,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 0
-  yPos: 0
 --- !u!1001 &882852258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2916,8 +2873,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 4
-  yPos: 2
 --- !u!1001 &932141535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3018,8 +2973,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 2
-  yPos: 3
 --- !u!1001 &967868993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3120,8 +3073,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 3
-  yPos: 3
 --- !u!1001 &977059214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3222,8 +3173,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 0
-  yPos: 7
 --- !u!1001 &992941698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3527,8 +3476,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 3
-  yPos: 6
 --- !u!1 &1038598224
 GameObject:
   m_ObjectHideFlags: 0
@@ -3823,8 +3770,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 4
-  yPos: 9
 --- !u!1001 &1053739069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3925,8 +3870,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 3
-  yPos: 10
 --- !u!1001 &1058651824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4027,8 +3970,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 3
-  yPos: 4
 --- !u!1001 &1079677829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4129,8 +4070,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 1
-  yPos: 9
 --- !u!1001 &1079685393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4231,8 +4170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 3
-  yPos: 5
 --- !u!1001 &1121174791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4333,8 +4270,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 2
-  yPos: 10
 --- !u!1001 &1150790311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4440,8 +4375,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 0
-  yPos: 2
 --- !u!1 &1154954147
 GameObject:
   m_ObjectHideFlags: 0
@@ -4651,8 +4584,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 3
-  yPos: 8
 --- !u!1001 &1218324482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4753,8 +4684,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 3
-  yPos: 7
 --- !u!1 &1257758547
 GameObject:
   m_ObjectHideFlags: 0
@@ -8961,8 +8890,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 4
-  yPos: 10
 --- !u!1001 &1410273676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9063,8 +8990,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 0
-  yPos: 6
 --- !u!1001 &1452786160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9165,8 +9090,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 0
-  yPos: 10
 --- !u!1 &1485370882
 GameObject:
   m_ObjectHideFlags: 0
@@ -9298,8 +9221,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 1
-  yPos: 7
 --- !u!1001 &1537263387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9400,8 +9321,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 4
-  yPos: 8
 --- !u!1001 &1626938732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9502,8 +9421,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 4
-  yPos: 4
 --- !u!1001 &1643847338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9604,8 +9521,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 4
-  yPos: 7
 --- !u!1001 &1670060515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9711,8 +9626,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 0
-  yPos: 1
 --- !u!1001 &1670314421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9813,8 +9726,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 1
-  yPos: 10
 --- !u!1001 &1675789263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9915,8 +9826,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 4
-  yPos: 3
 --- !u!1001 &1695458620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10017,8 +9926,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 2
-  yPos: 2
 --- !u!1 &1701585640
 GameObject:
   m_ObjectHideFlags: 0
@@ -10141,9 +10048,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: d1106fceb8a44494195d0d06c23f1336, type: 3}
+  m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 2
+  m_BehaviorType: 0
   m_BehaviorName: MLAgent
   TeamId: 0
   m_UseChildSensors: 1
@@ -10549,8 +10456,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 4
-  yPos: 6
 --- !u!1 &1775454816
 GameObject:
   m_ObjectHideFlags: 0
@@ -10692,8 +10597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 4
-  yPos: 1
 --- !u!1 &1801062769
 GameObject:
   m_ObjectHideFlags: 0
@@ -10948,8 +10851,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 2
-  yPos: 6
 --- !u!1001 &1852104996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11050,8 +10951,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 1
-  yPos: 4
 --- !u!1 &1908418538
 GameObject:
   m_ObjectHideFlags: 0
@@ -11218,8 +11117,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 1
-  yPos: 5
 --- !u!1 &1961822951
 GameObject:
   m_ObjectHideFlags: 0
@@ -11412,8 +11309,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 1
-  yPos: 6
 --- !u!1 &2005581681
 GameObject:
   m_ObjectHideFlags: 0
@@ -11590,8 +11485,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 2
-  yPos: 9
 --- !u!1001 &2086775068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11692,8 +11585,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 2
-  yPos: 0
 --- !u!1 &2096443785
 GameObject:
   m_ObjectHideFlags: 0
@@ -11889,8 +11780,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 1
-  yPos: 0
 --- !u!1001 &2104780067
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11991,8 +11880,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 0
-  yPos: 9
 --- !u!1001 &2126215682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12093,8 +11980,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenHit: 0
-  xPos: 1
-  yPos: 3
 --- !u!1 &1425560868192500088
 GameObject:
   m_ObjectHideFlags: 0

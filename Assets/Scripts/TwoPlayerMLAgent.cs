@@ -40,15 +40,16 @@ public class TwoPlayerMLAgent : Agent
 		// check if any bricks have been broken
 		if (MLGameManager.instance.bricksBroken != previousBricksBroken)
 		{
-			AddReward(+1f);
+			//AddReward(+1f);
 			previousBricksBroken = MLGameManager.instance.bricksBroken;
 		}
 
 		// check if any lives have been lost
 		if (MLGameManager.instance.lives != previousLives)
 		{
-			AddReward(-1f);
+			//AddReward(-0.5f);
 			previousLives = MLGameManager.instance.lives;
+			EndEpisode();
 		}
 		previousPaddlePosition = transform.position.x;
 	}

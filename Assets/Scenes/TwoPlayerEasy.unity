@@ -2462,15 +2462,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  rigidBody: {fileID: 0}
-  previousVelocity: {x: 0, y: 0, z: 0}
-  inPlay: 0
   randomXCoord: 0
   randomYCoord: 0
   gm: {fileID: 750711412}
   countdown: {fileID: 1609675989}
-  startDirection: 0
-  visual: {fileID: 0}
 --- !u!50 &280539027
 Rigidbody2D:
   serializedVersion: 4
@@ -6397,19 +6392,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d66db5a820128429038db0811445d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  rigidBody: {fileID: 0}
-  previousVelocity: {x: 0, y: 0, z: 0}
-  inPlay: 0
-  randomXCoord: 0
   randomYCoord: 0
   randXStart: 4
   randXEnd: 5
-  randYStart: 0
-  randYEnd: 0
   gm: {fileID: 455267854}
   countdown: {fileID: 3806319715538797984}
-  visual: {fileID: 0}
 --- !u!50 &764608317
 Rigidbody2D:
   serializedVersion: 4

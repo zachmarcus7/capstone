@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
     public void PlayerDeath()
     {
         destroyPaddle();
-        Pause.instance.ShowEndPopUp();
+        //Pause.instance.ShowEndPopUp();                        // CHANGED FOR TRAINING
     }
 
     public void DestroyCurrentGame()

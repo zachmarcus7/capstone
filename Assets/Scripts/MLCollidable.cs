@@ -5,8 +5,6 @@ using UnityEngine;
 public class MLCollidable : MonoBehaviour
 {
     public bool hasBeenHit;
-    public int xPos;
-    public int yPos;
 
 
     void Start()
@@ -16,9 +14,10 @@ public class MLCollidable : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll)
     {
+        /*
         if (coll.gameObject.tag == "MLBall")                           
         {
-            if (!hasBeenHit)
+            if (!hasBeenHit)                                             // CHANGED FOR TRAINING
             {
                 hasBeenHit = true;
 
@@ -29,5 +28,6 @@ public class MLCollidable : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        */
     }
 }

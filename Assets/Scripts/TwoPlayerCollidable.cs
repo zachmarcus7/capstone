@@ -14,6 +14,8 @@ public class TwoPlayerCollidable : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D coll)
     {
+        // CHANGED FOR TRAINING
+        /*
         
         if (!hasBeenHit)
             hasBeenHit = true; 
@@ -26,7 +28,7 @@ public class TwoPlayerCollidable : MonoBehaviour
 
         // remove the brick from the game
         Destroy(gameObject);
-
+        */
         
     }
 }
