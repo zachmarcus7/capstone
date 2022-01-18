@@ -27,7 +27,7 @@ public class TwoPlayerMLBall : MonoBehaviour
         // set startDirection depending on scene
         if (_scene.name == "MLAgentScreen")
 		{
-            _startDirection = 200;
+            _startDirection = 230;
         }
         else
 		{

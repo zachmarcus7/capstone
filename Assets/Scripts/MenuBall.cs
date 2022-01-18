@@ -1,43 +1,46 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using System.Linq;
-
-
-public class MenuBall : MonoBehaviour
+namespace MLBreakout
 {
-    private Renderer _visual;
-    private bool _inPlay;
-    private Rigidbody2D _rigidBody;
+    using UnityEngine;
 
-    private void Start()
+    /// <summary>
+    /// This is for the ball that launches and bounces
+    /// around the screen in the opening menu.
+    /// </summary>
+    public class MenuBall : MonoBehaviour
     {
-        _rigidBody = GetComponent<Rigidbody2D>();
-        _visual = GetComponent<Renderer>();
-        _visual.enabled = !_visual.enabled;
-        AutomaticLaunch();
-    }
+        private Renderer _visual;
+        private bool _inPlay;
+        private Rigidbody2D _rigidBody;
 
-    private void Update()
-    {
-        if (_inPlay)
+        private void Start()
         {
-            int yValue = 1;
-            if (_rigidBody.velocity.magnitude < 5)
+            _rigidBody = GetComponent<Rigidbody2D>();
+            _visual = GetComponent<Renderer>();
+            _visual.enabled = !_visual.enabled;
+            AutomaticLaunch();
+        }
+
+        private void Update()
+        {
+            if (_inPlay)
             {
-                Vector2 minimumVelocity = new Vector2(0, yValue);
-                _rigidBody.velocity += minimumVelocity;
+                // this makes sure the ball stays at a minimum speed
+                int yValue = 1;
+                if (_rigidBody.velocity.magnitude < 5)
+                {
+                    Vector2 minimumVelocity = new Vector2(0, yValue);
+                    _rigidBody.velocity += minimumVelocity;
+                }
             }
         }
-    }
 
-    private void AutomaticLaunch()
-    {
-        Vector2 direction = new Vector2(200, 15);
-        _rigidBody.AddForce(direction);
-        _inPlay = true;
-        _visual.enabled = true;
+        // this launches the ball whenever the opening menu starts
+        private void AutomaticLaunch()
+        {
+            Vector2 direction = new Vector2(200, 15);
+            _rigidBody.AddForce(direction);
+            _inPlay = true;
+            _visual.enabled = true;
+        }
     }
 }

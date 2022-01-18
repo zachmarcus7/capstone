@@ -1,23 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-
-
-public class AboutButton : MonoBehaviour
+namespace MLBreakout
 {
-    public Button GameButton;
-	public AboutPopUp PopUp;
+    using UnityEngine;
+    using UnityEngine.UI;
 
-	private void Start()
-	{
-		GameButton = GetComponent<Button>();
-		GameButton.onClick.AddListener(OnClick);
-	}
+    /// <summary>
+    /// This is a simple button class used on a button to launch the
+    /// about pop up in the opening menu.
+    /// </summary>
+    public class AboutButton : MonoBehaviour
+    {
+        public Button GameButton;
+        public AboutPopUp PopUp;
 
-	public void OnClick()
-	{
-		PopUp.MakeActive();
-	}
+        private void Start()
+        {
+            GameButton = GetComponent<Button>();
+            GameButton.onClick.AddListener(OnClick);
+        }
+
+        public void OnClick()
+        {
+            PopUp.MakeActive();
+        }
+    }
 }

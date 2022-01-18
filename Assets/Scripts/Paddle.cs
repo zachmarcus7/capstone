@@ -1,62 +1,66 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-
-public class Paddle : MonoBehaviour
+﻿namespace MLBreakout
 {
-    private Vector3 _lastMousePosition;
-    private float _speed;
-    public float RightScreenEdge;
-    public float LeftScreenEdge;
+    using UnityEngine;
 
-    private void start()
-	{
-        _speed = 15;
-	}
-
-    private void Update()
+    /// <summary>
+    /// This is used with the paddle in the one-player
+    /// regular mode, allowing the user to control it.
+    /// </summary>
+    public class Paddle : MonoBehaviour
     {
-        // for pausing
-        if (Pause.Active)
-		{
-            return;
-		}
+        private Vector3 _lastMousePosition;
+        private float _speed;
+        public float RightScreenEdge;
+        public float LeftScreenEdge;
 
-        // check if mouse has moved
-        if (Input.mousePosition != _lastMousePosition)
+        private void start()
         {
-            _lastMousePosition = Input.mousePosition;
-            OnMouseMovement();
+            _speed = 15;
         }
-        else
+
+        private void Update()
         {
-            OnMouseNotMoving();
+            // for pausing
+            if (Pause.Active)
+            {
+                return;
+            }
+
+            // check if mouse has moved
+            if (Input.mousePosition != _lastMousePosition)
+            {
+                _lastMousePosition = Input.mousePosition;
+                OnMouseMoving();
+            }
+            else
+            {
+                OnMouseNotMoving();
+            }
+
+            // check if paddle has hit an edge
+            if (transform.localPosition.x < LeftScreenEdge)
+            {
+                transform.localPosition = new Vector3(LeftScreenEdge, transform.position.y, 0);
+            }
+            if (transform.localPosition.x > RightScreenEdge)
+            {
+                transform.localPosition = new Vector3(RightScreenEdge, transform.position.y, 0);
+            }
         }
 
-        // check if paddle has hit an edge
-        if (transform.localPosition.x < LeftScreenEdge)
-		{
-            transform.localPosition = new Vector3(LeftScreenEdge, transform.position.y, 0);
+        private void OnMouseMoving()
+        {
+            Camera cam = Camera.main;
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 paddlePosition = new Vector3(mousePosition.x, transform.position.y, 0);
+            transform.position = paddlePosition;
         }
-        if (transform.localPosition.x > RightScreenEdge)
-		{
-            transform.localPosition = new Vector3(RightScreenEdge, transform.position.y, 0);
+
+        private void OnMouseNotMoving()
+        {
+            float xVal = Input.GetAxisRaw("Horizontal");
+            Vector3 moveDelta = new Vector3(xVal, 0, 0);
+            transform.Translate(moveDelta.x * Time.deltaTime * _speed, 0, 0);
         }
-    }
-
-    private void OnMouseMovement()
-    {
-        Camera cam = Camera.main;
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 paddlePosition = new Vector3(mousePosition.x, transform.position.y, 0);
-        transform.position = paddlePosition;
-    }
-
-    private void OnMouseNotMoving()
-    {
-        float xVal = Input.GetAxisRaw("Horizontal");
-        Vector3 moveDelta = new Vector3(xVal, 0, 0);
-        transform.Translate(moveDelta.x * Time.deltaTime * _speed, 0, 0);
     }
 }

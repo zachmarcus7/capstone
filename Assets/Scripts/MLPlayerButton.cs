@@ -1,22 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-
-
-public class MLPlayerButton : MonoBehaviour
+namespace MLBreakout
 {
-	private Button _mlPlayerButton;
+    using UnityEngine;
+    using UnityEngine.SceneManagement;
+    using UnityEngine.UI;
 
-	private void Start()
-	{
-		_mlPlayerButton = GetComponent<Button>();
-		_mlPlayerButton.onClick.AddListener(OnClick);
-	}
+    /// <summary>
+    /// This is a simple button class used on a button to switch
+    /// scenes to the one-player ml agent scene.
+    /// </summary>
+    public class MLPlayerButton : MonoBehaviour
+    {
+        private Button _mlPlayerButton;
 
-	private void OnClick()
-	{
-		SceneManager.LoadScene("MLAgentScreen");
-	}
+        private void Start()
+        {
+            _mlPlayerButton = GetComponent<Button>();
+            _mlPlayerButton.onClick.AddListener(OnClick);
+        }
+
+        private void OnClick()
+        {
+            SceneManager.LoadScene("MLAgentScreen");
+        }
+    }
 }

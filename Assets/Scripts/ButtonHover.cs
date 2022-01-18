@@ -1,43 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
-
-
-public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+namespace MLBreakout
 {
-    private bool _mouseOver;
-    public Sprite ButtonOne;
-    public Sprite ButtonTwo;
-    public Image SelectedImage;
+    using UnityEngine;
+    using UnityEngine.EventSystems;
+    using UnityEngine.UI;
 
-    private void Start()
+    /// <summary>
+    /// This is a class for changing the sprite
+    /// of a button when a user hovers over it.
+    /// </summary>
+    public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        _mouseOver = false;
-        SelectedImage = GetComponent<Image>();
-        SelectedImage.sprite = ButtonTwo;
-    }
+        private bool _mouseOver;
+        public Sprite ButtonOne;
+        public Sprite ButtonTwo;
+        public Image SelectedImage;
 
-    private void Update()
-    {
-        if (_mouseOver)
-		{
+        private void Start()
+        {
+            _mouseOver = false;
+            SelectedImage = GetComponent<Image>();
             SelectedImage.sprite = ButtonTwo;
         }
-        else
-		{
-            SelectedImage.sprite = ButtonOne;
+
+        private void Update()
+        {
+            if (_mouseOver)
+            {
+                SelectedImage.sprite = ButtonTwo;
+            }
+            else
+            {
+                SelectedImage.sprite = ButtonOne;
+            }
         }
-    }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        _mouseOver = true;
-    }
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            _mouseOver = true;
+        }
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        _mouseOver = false;
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            _mouseOver = false;
+        }
     }
 }

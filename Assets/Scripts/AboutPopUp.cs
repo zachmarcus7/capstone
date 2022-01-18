@@ -1,38 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-
-public class AboutPopUp : MonoBehaviour
+namespace MLBreakout
 {
-	private static bool _active;
-	public AboutPopUp Instance;
-	public GameObject PopUp;
+    using UnityEngine;
 
-	private void Start()
-	{
-		_active = false;
-	}
+    /// <summary>
+    /// Pop up that appears in opening menu.
+    /// Explains what game is about.
+    /// </summary>
+    public class AboutPopUp : MonoBehaviour
+    {
+        private static bool _active;
+        public AboutPopUp Instance;
+        public GameObject PopUp;
 
-	private void Update()
-	{
-		if (_active)
-		{
-		PopUp.SetActive(true);
-		}
-		else
-		{
-		PopUp.SetActive(false);
-		}
-	}
+        private void Start()
+        {
+            _active = false;
+        }
 
-	public void MakeActive()
-	{
-		_active = true;
-	}
+        private void Update()
+        {
+            if (_active)
+            {
+                PopUp.SetActive(true);
+            }
+            else
+            {
+                PopUp.SetActive(false);
+            }
+        }
 
-	public void MakeInactive()
-	{
-		_active = false;
-	}
+        public void MakeActive()
+        {
+            _active = true;
+        }
+
+        public void MakeInactive()
+        {
+            _active = false;
+        }
+    }
 }
