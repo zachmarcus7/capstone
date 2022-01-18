@@ -4,31 +4,30 @@ using UnityEngine;
 
 public class AboutPopUp : MonoBehaviour
 {
-    public static AboutPopUp instance;
-    public static bool active;
-    public GameObject popUp;
+    private static bool _active;
+    public static AboutPopUp Instance;
+    public GameObject PopUp;
 
-
-    void Start()
+    private void Start()
     {
-        active = false;
+        _active = false;
     }
 
-    public void Update()
+    private void Update()
     {
-        if (active)
-            popUp.SetActive(true);
+        if (_active)
+            PopUp.SetActive(true);
         else
-            popUp.SetActive(false); 
+            PopUp.SetActive(false); 
     }
 
-    public void makeActive()
+    public void MakeActive()
 	{
-        active = true;
+        _active = true;
 	}
 
-    public void makeInactive()
+    public void MakeInactive()
 	{
-        active = false;
+        _active = false;
 	}
 }

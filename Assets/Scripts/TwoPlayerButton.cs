@@ -6,18 +6,17 @@ using UnityEngine.UI;
 
 public class TwoPlayerButton : MonoBehaviour
 {
-	public Button twoPlayerButton;
-	public TwoPlayerPopUp popUp;
+	public Button GameButton;
+	public TwoPlayerPopUp PopUp;
 
-
-	void Start()
+	private void Start()
 	{
-		twoPlayerButton = GetComponent<Button>();
-		twoPlayerButton.onClick.AddListener(TaskOnClick);
+		GameButton = GetComponent<Button>();
+		GameButton.onClick.AddListener(OnClick);
 	}
 
-	void TaskOnClick()
+	private void OnClick()
 	{
-		popUp.makeActive();
+		PopUp.MakeActive();
 	}
 }

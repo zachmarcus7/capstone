@@ -6,16 +6,15 @@ using UnityEngine.UI;
 
 public class TwoPlayerHardButton : MonoBehaviour
 {
-	public Button hardButton;
+	private Button _hardButton;
 
-
-	void Start()
+	private void Start()
 	{
-		hardButton = GetComponent<Button>();
-		hardButton.onClick.AddListener(TaskOnClick);
+		_hardButton = GetComponent<Button>();
+		_hardButton.onClick.AddListener(OnClick);
 	}
 
-	void TaskOnClick()
+	public void OnClick()
 	{
 		SceneManager.LoadScene("TwoPlayerHard");
 	}

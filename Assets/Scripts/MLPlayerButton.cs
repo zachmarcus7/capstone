@@ -6,16 +6,15 @@ using UnityEngine.UI;
 
 public class MLPlayerButton : MonoBehaviour
 {
-	public Button mlPlayerButton;
+	private Button _mlPlayerButton;
 
-
-	void Start()
+	private void Start()
 	{
-		mlPlayerButton = GetComponent<Button>();
-		mlPlayerButton.onClick.AddListener(TaskOnClick);
+		_mlPlayerButton = GetComponent<Button>();
+		_mlPlayerButton.onClick.AddListener(OnClick);
 	}
 
-	void TaskOnClick()
+	private void OnClick()
 	{
 		SceneManager.LoadScene("MLAgentScreen");
 	}

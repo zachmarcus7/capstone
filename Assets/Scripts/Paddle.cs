@@ -4,17 +4,47 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    public float speed;
-    public float rightScreenEdge;
-    public float leftScreenEdge;
-    private Vector3 lastMousePosition;
+    private Vector3 _lastMousePosition;
+    private float _speed;
+    public float RightScreenEdge;
+    public float LeftScreenEdge;
 
-    void start()
+    private void start()
 	{
-        speed = 15;
+        _speed = 15;
 	}
 
-    void WhenMouseIsMoving()
+    private void Update()
+    {
+        // for pausing
+        if (Pause.Active)
+		{
+            return;
+		}
+
+        // check if mouse has moved
+        if (Input.mousePosition != _lastMousePosition)
+        {
+            _lastMousePosition = Input.mousePosition;
+            OnMouseMovement();
+        }
+        else
+        {
+            OnMouseNotMoving();
+        }
+
+        // check if paddle has hit an edge
+        if (transform.localPosition.x < LeftScreenEdge)
+		{
+            transform.localPosition = new Vector3(LeftScreenEdge, transform.position.y, 0);
+        }
+        if (transform.localPosition.x > RightScreenEdge)
+		{
+            transform.localPosition = new Vector3(RightScreenEdge, transform.position.y, 0);
+        }
+    }
+
+    private void OnMouseMovement()
     {
         Camera cam = Camera.main;
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -22,31 +52,10 @@ public class Paddle : MonoBehaviour
         transform.position = paddlePosition;
     }
 
-    void WhenMouseIsNotMoving()
+    private void OnMouseNotMoving()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        Vector3 moveDelta = new Vector3(x, 0, 0);
-        transform.Translate(moveDelta.x * Time.deltaTime * speed, 0, 0);
-    }
-
-    void Update()
-    {
-        // for pausing
-        if (Pause.active)
-            return;
-
-        if (Input.mousePosition != lastMousePosition)
-        {
-            lastMousePosition = Input.mousePosition;
-            WhenMouseIsMoving();
-        }
-        else
-        {
-            WhenMouseIsNotMoving();
-        }
-        if (transform.localPosition.x < leftScreenEdge)
-            transform.localPosition = new Vector3(leftScreenEdge, transform.position.y, 0);
-        if (transform.localPosition.x > rightScreenEdge)
-            transform.localPosition = new Vector3(rightScreenEdge, transform.position.y, 0); 
+        float xVal = Input.GetAxisRaw("Horizontal");
+        Vector3 moveDelta = new Vector3(xVal, 0, 0);
+        transform.Translate(moveDelta.x * Time.deltaTime * _speed, 0, 0);
     }
 }

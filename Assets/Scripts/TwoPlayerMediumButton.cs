@@ -6,16 +6,15 @@ using UnityEngine.UI;
 
 public class TwoPlayerMediumButton : MonoBehaviour
 {
-	public Button mediumButton;
+	private Button _mediumButton;
 
-
-	void Start()
+	private void Start()
 	{
-		mediumButton = GetComponent<Button>();
-		mediumButton.onClick.AddListener(TaskOnClick);
+		_mediumButton = GetComponent<Button>();
+		_mediumButton.onClick.AddListener(OnClick);
 	}
 
-	void TaskOnClick()
+	public void OnClick()
 	{
 		SceneManager.LoadScene("TwoPlayerMedium");
 	}

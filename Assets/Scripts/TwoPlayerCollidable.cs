@@ -4,27 +4,32 @@ using UnityEngine;
 
 public class TwoPlayerCollidable : MonoBehaviour
 {
-    public bool hasBeenHit;
+    private bool _hasBeenHit;
 
-
-    void Start()
+    private void Start()
     {
-        hasBeenHit = false;
+        _hasBeenHit = false;
     }
 
-    public void OnCollisionEnter2D(Collision2D coll)
+    private void OnCollisionEnter2D(Collision2D coll)
     {
         // CHANGED FOR TRAINING
         /*
         
-        if (!hasBeenHit)
-            hasBeenHit = true; 
+        if (!_hasBeenHit)
+        {
+            _hasBeenHit = true; 
+        }
 
         // update either the player's points or ml agent's points
-        if (coll.gameObject.tag == "Ball")                                        
-            GameManager.instance.IncrementPoints(1);
+        if (coll.gameObject.tag == "Ball")
+        {
+            GameManager.Instance.IncrementPoints(1);
+        }
         else
-            MLGameManager.instance.IncrementPoints(1);
+        {
+            MLGameManager.Instance.IncrementPoints(1);
+        }
 
         // remove the brick from the game
         Destroy(gameObject);

@@ -6,18 +6,17 @@ using UnityEngine.UI;
 
 public class TwoPlayerBackButton : MonoBehaviour
 {
-	public Button backButton;
-	public TwoPlayerPopUp popUp;
+	public Button BackButton;
+	public TwoPlayerPopUp PopUp;
 
-
-	void Start()
+	private void Start()
 	{
-		backButton = GetComponent<Button>();
-		backButton.onClick.AddListener(TaskOnClick);
+		BackButton = GetComponent<Button>();
+		BackButton.onClick.AddListener(OnClick);
 	}
 
-	public void TaskOnClick()
+	public void OnClick()
 	{
-		popUp.makeInactive();
+		PopUp.MakeInactive();
 	}
 }

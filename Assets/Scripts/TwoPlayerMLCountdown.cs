@@ -5,44 +5,43 @@ using UnityEngine.UI;
 
 public class TwoPlayerMLCountdown : MonoBehaviour
 {
-	public static bool active = false;
-	public float currentTime = 0f;
-	public float startingTime = 3f;
-	public Text countdownText;
-	public TwoPlayerMLBall ball;
-	public GameObject countdown;
+	private bool _active;
+	private float _currentTime;
+	public Text CountdownText;
+	public TwoPlayerMLBall SelectedBall;
+	public GameObject CountdownObject;
 
-
-	void Start()
+	private void Start()
 	{
-		currentTime = startingTime;
+		_active = false;
+		_currentTime = 3f;
 	}
 
-	void Update()
+	private void Update()
 	{
 		// check if the countdown is active
-		if (active)
+		if (_active)
 		{
-			currentTime -= 1 * Time.deltaTime;
-			countdownText.text = currentTime.ToString("0") + "...";
+			_currentTime -= 1 * Time.deltaTime;
+			CountdownText.text = _currentTime.ToString("0") + "...";
 
 			// check if we've hit zero
-			if (currentTime < 1)
+			if (_currentTime < 1)
 			{
 				// reset everything
-				active = false;
-				countdown.SetActive(false);
-				currentTime = 3f;
+				_active = false;
+				CountdownObject.SetActive(false);
+				_currentTime = 3f;
 
 				// launch ball
-				ball.AutomaticLaunch();
+				SelectedBall.AutomaticLaunch();
 			}
 		}
 	}
 
-	public void activateCountdown()
+	public void ActivateCountdown()
 	{
-		active = true;
-		countdown.SetActive(true);
+		_active = true;
+		CountdownObject.SetActive(true);
 	}
 }

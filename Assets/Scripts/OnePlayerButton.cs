@@ -6,16 +6,15 @@ using UnityEngine.UI;
 
 public class OnePlayerButton : MonoBehaviour
 {
-	public Button onePlayerButton;
+	private Button _onePlayerButton;
 
-
-	void Start()
+	private void Start()
 	{
-		onePlayerButton = GetComponent<Button>();
-		onePlayerButton.onClick.AddListener(TaskOnClick);
+		_onePlayerButton = GetComponent<Button>();
+		_onePlayerButton.onClick.AddListener(OnClick);
 	}
 
-	void TaskOnClick()
+	private void OnClick()
 	{
 		SceneManager.LoadScene("Main");
 	}

@@ -4,25 +4,24 @@ using UnityEngine;
 
 public class MLCollidable : MonoBehaviour
 {
-    public bool hasBeenHit;
+    private bool _hasBeenHit;
 
-
-    void Start()
+    private void Start()
     {
-        hasBeenHit = false;
+        _hasBeenHit = false;
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
+    private void OnCollisionEnter2D(Collision2D coll)
     {
         /*
         if (coll.gameObject.tag == "MLBall")                           
         {
-            if (!hasBeenHit)                                             // CHANGED FOR TRAINING
+            if (!_hasBeenHit)                                             // CHANGED FOR TRAINING
             {
-                hasBeenHit = true;
+                _hasBeenHit = true;
 
                 // update player's points
-                MLGameManager.instance.IncrementPoints(1);
+                MLGameManager.Instance.IncrementPoints(1);
 
                 // remove the brick from the game
                 Destroy(gameObject);

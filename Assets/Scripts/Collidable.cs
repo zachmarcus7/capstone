@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class Collidable : MonoBehaviour
 {
-    public bool hasBeenHit;
+    private bool _hasBeenHit;
 
-
-    void Start()
+    private void Start()
     {
-        hasBeenHit = false;
+        _hasBeenHit = false;
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
+    private void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Ball")
         {
-            if (!hasBeenHit)
+            if (!_hasBeenHit)
             {
-                hasBeenHit = true;
+                _hasBeenHit = true;
 
                 // update player's points
-                GameManager.instance.IncrementPoints(1);
+                GameManager.Instance.IncrementPoints(1);
 
                 // remove the brick from the game
                 Destroy(gameObject);

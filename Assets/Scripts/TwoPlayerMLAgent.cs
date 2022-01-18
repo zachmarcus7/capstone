@@ -8,75 +8,77 @@ using UnityEngine.SceneManagement;
 
 public class TwoPlayerMLAgent : Agent
 {
-	public static TwoPlayerMLAgent instance;
-	public GameObject target;
-	public float rightScreenEdge;
-	public float leftScreenEdge;
-	public int previousBricksBroken;
-	public int previousLives;
-	public float input;
-	public TwoPlayerMLBall ball;
-	private float moveSpeed;
-	private float previousPaddlePosition;
-	private Vector3 previousBallLocation;
-	private Vector3 changeInBallLocation;
+	private float _moveSpeed;
+	private float _previousPaddlePosition;
+	private Vector3 _previousBallLocation;
+	private Vector3 _changeInBallLocation;
+	public static TwoPlayerMLAgent Instance;
+	public GameObject Target;
+	public int PreviousBricksBroken;
+	public int PreviousLives;
+	public float RightScreenEdge;
+	public float LeftScreenEdge;
+	public float Input;
 
-
-	void Awake()
+	private void Awake()
 	{
-		previousLives = 5;
-		previousBricksBroken = 0;
-		moveSpeed = 5f;
-		instance = this;
+		_moveSpeed = 5f;
+		PreviousLives = 5;
+		PreviousBricksBroken = 0;
+		Instance = this;
 	}
 
-	void Update()
+	private void Update()
 	{
-		if (transform.localPosition.x < leftScreenEdge)
-			transform.localPosition = new Vector3(leftScreenEdge, transform.localPosition.y, 0);
-		if (transform.localPosition.x > rightScreenEdge)
-			transform.localPosition = new Vector3(rightScreenEdge, transform.localPosition.y, 0);
+		if (transform.localPosition.x < LeftScreenEdge)
+		{
+			transform.localPosition = new Vector3(LeftScreenEdge, transform.localPosition.y, 0);
+		}
+		if (transform.localPosition.x > RightScreenEdge)
+		{
+			transform.localPosition = new Vector3(RightScreenEdge, transform.localPosition.y, 0);
+		}
 
 		// check if any bricks have been broken
-		if (MLGameManager.instance.bricksBroken != previousBricksBroken)
+		if (MLGameManager.Instance.BricksBroken != PreviousBricksBroken)
 		{
 			//AddReward(+1f);
-			previousBricksBroken = MLGameManager.instance.bricksBroken;
+			PreviousBricksBroken = MLGameManager.Instance.BricksBroken;
 		}
 
 		// check if any lives have been lost
-		if (MLGameManager.instance.lives != previousLives)
+		if (MLGameManager.Instance.Lives != PreviousLives)
 		{
 			//AddReward(-0.5f);
-			previousLives = MLGameManager.instance.lives;
+			PreviousLives = MLGameManager.Instance.Lives;
 			EndEpisode();
 		}
-		previousPaddlePosition = transform.position.x;
+		_previousPaddlePosition = transform.position.x;
 	}
 
 	public override void OnEpisodeBegin()
 	{
 		transform.localPosition = new Vector3(5f, 7.6f, 0f);
-		target.transform.localPosition = new Vector3(Random.Range(1f, 8f), 6f, 0);
+		Target.transform.localPosition = new Vector3(Random.Range(1f, 8f), 6f, 0);
 	}
 
 	public override void CollectObservations(VectorSensor sensor)
 	{
-		changeInBallLocation = target.transform.localPosition - previousBallLocation;
-		previousBallLocation = target.transform.localPosition;
+		_changeInBallLocation = Target.transform.localPosition - _previousBallLocation;
+		_previousBallLocation = Target.transform.localPosition;
 
 		sensor.AddObservation(transform.localPosition);
-		sensor.AddObservation(target.transform.localPosition);
+		sensor.AddObservation(Target.transform.localPosition);
 
 		// add observation for distance
-		sensor.AddObservation(Vector3.Distance(this.transform.localPosition, target.transform.localPosition));
+		sensor.AddObservation(Vector3.Distance(this.transform.localPosition, Target.transform.localPosition));
 
 		// add observation for ball's direction
-		sensor.AddObservation(changeInBallLocation);
+		sensor.AddObservation(_changeInBallLocation);
 
 		// add observation for paddle distance to screen edges
-		sensor.AddObservation(transform.localPosition.x - leftScreenEdge);
-		sensor.AddObservation(rightScreenEdge - transform.localPosition.x);
+		sensor.AddObservation(transform.localPosition.x - LeftScreenEdge);
+		sensor.AddObservation(RightScreenEdge - transform.localPosition.x);
 	}
 
 	public override void OnActionReceived(ActionBuffers actions)
@@ -99,12 +101,14 @@ public class TwoPlayerMLAgent : Agent
 				break;
 		}
 
-		transform.localPosition += new Vector3(moveX * 3f, 0, 0) * Time.deltaTime * moveSpeed;   
+		transform.localPosition += new Vector3(moveX * 3f, 0, 0) * Time.deltaTime * _moveSpeed;   
 	}
 
 	void OnCollisionEnter2D(Collision2D coll)
 	{
 		if (coll.gameObject.tag == "MLBall")
+		{
 			AddReward(+1f);
+		}
 	}
 }

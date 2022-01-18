@@ -7,86 +7,89 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
-    public Paddle paddle;
-    public int score;
-    public Text scoresText;
-    public Text livesText;
-    public int lives;
-    Scene scene;
-    public bool over;
-    private int winningScore;
-
-
-    private void resetGame()
-    {
-        lives = 5;
-        scoresText.text = "Score: " + score.ToString();
-        livesText.text = "Lives: " + lives.ToString();
-        scene = SceneManager.GetActiveScene();
-        over = false;
-    }
+    private int _winningScore;
+    private Scene _scene;
+    public static GameManager Instance;
+    public int Score;
+    public int Lives;
+    public bool Over;
+    public Text ScoresText;
+    public Text LivesText;
+    public Paddle SelectedPaddle;
 
     private void Start()
     {
-        resetGame();
+        ResetGame();
 
         // set up winning score for different modes
-        if (scene.name == "Main")
-            winningScore = 55;
+        if (_scene.name == "Main")
+		{
+            _winningScore = 55;
+        }
         else
-            winningScore = 43;
+		{
+            _winningScore = 43;
+        }
+    }
+
+    private void ResetGame()
+    {
+        Lives = 5;
+        Over = false;
+        ScoresText.text = "Score: " + Score.ToString();
+        LivesText.text = "Lives: " + Lives.ToString();
+        _scene = SceneManager.GetActiveScene();
     }
 
     private void Awake()
     {
-        if (GameManager.instance != null)
+        if (GameManager.Instance != null)
         {
             Destroy(gameObject);
             return;
         }
 
         // make sure there's only one instance of the GameManager
-        instance = this;
+        Instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
     public void IncrementPoints(int changeInScore)
     {
-        score += changeInScore;
-        scoresText.text = "Score: " + score.ToString();
+        Score += changeInScore;
+        ScoresText.text = "Score: " + Score.ToString();
 
         // check if player has won the game
-        if (score == winningScore)
+        if (Score == _winningScore)
             PlayerWin();
     }
 
     public void DecrementLives()
     {
-        lives -= 1;
-        livesText.text = "Lives: " + lives.ToString();
+        Lives -= 1;
+        LivesText.text = "Lives: " + Lives.ToString();
 
         // check if player has lost all their lives
-        if (lives < 1)
+        if (Lives < 1)
             PlayerDeath();
     }
 
-    public void destroyPaddle()
+    public void DestroyPaddle()
 	{
-        over = true;
+        Over = true;
         GameObject paddleObject = GameObject.Find("Paddle");
         Destroy(paddleObject);
     }
 
     public void PlayerWin()
     {
-        destroyPaddle();
-        Pause.instance.ShowWinnerPopUp();
+        DestroyPaddle();
+        Pause.Instance.ShowWinnerPopUp();
     }
 
     public void PlayerDeath()
     {
-        destroyPaddle();
+        DestroyPaddle();
         //Pause.instance.ShowEndPopUp();                        // CHANGED FOR TRAINING
     }
 

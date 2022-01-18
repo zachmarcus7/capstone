@@ -271,8 +271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9adde1e669717d43b37a6a1a69519f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  twoPlayerButton: {fileID: 13801883}
-  popUp: {fileID: 275620250}
+  GameButton: {fileID: 13801883}
+  PopUp: {fileID: 275620250}
 --- !u!114 &13801887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,9 +314,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18908d2528019ce49b8f9056e0a49424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
-  buttonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
-  image: {fileID: 0}
+  ButtonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
+  ButtonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
+  SelectedImage: {fileID: 0}
 --- !u!1 &66108172
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,9 +630,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18908d2528019ce49b8f9056e0a49424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
-  buttonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
-  image: {fileID: 0}
+  ButtonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
+  ButtonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
+  SelectedImage: {fileID: 0}
 --- !u!212 &263011083
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -778,7 +778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b4cc1b4626dfe4f947087f647d7492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  easyButton: {fileID: 263011084}
+  EasyButton: {fileID: 263011084}
 --- !u!1 &264406489
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,7 +895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d233f7a198ca2f64fbc2d9c0e76e876f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popUp: {fileID: 84286030}
+  PopUp: {fileID: 84286030}
 --- !u!225 &275620251
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1550,8 +1550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bc1c1fd49247ce4487fcbd3e2b55885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aboutButton: {fileID: 760119247}
-  popUp: {fileID: 1500499440}
+  GameButton: {fileID: 760119247}
+  PopUp: {fileID: 1500499440}
 --- !u!114 &760119251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1564,9 +1564,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18908d2528019ce49b8f9056e0a49424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
-  buttonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
-  image: {fileID: 0}
+  ButtonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
+  ButtonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
+  SelectedImage: {fileID: 0}
 --- !u!1001 &765368168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1773,8 +1773,8 @@ GameObject:
   - component: {fileID: 920801188}
   - component: {fileID: 920801187}
   - component: {fileID: 920801190}
-  - component: {fileID: 920801189}
   - component: {fileID: 920801191}
+  - component: {fileID: 920801189}
   m_Layer: 0
   m_Name: ballBlue
   m_TagString: Untagged
@@ -1856,20 +1856,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 920801186}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 742ffe0c4ce9b3242b60d58372b35f46, type: 3}
+  m_Script: {fileID: 11500000, guid: d7731d21b277d904fb00dfb279e1986a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  rigidBody: {fileID: 0}
-  previousVelocity: {x: 0, y: 0, z: 0}
-  inPlay: 0
-  randomXCoord: 0
-  randomYCoord: 0
-  randXStart: 0
-  randXEnd: 0
-  randYStart: 0
-  randYEnd: 0
-  visual: {fileID: 0}
+  _inPlay: 0
+  RigidBody: {fileID: 920801190}
+  PreviousVelocity: {x: 0, y: 0, z: 0}
+  RandomXCoord: 0
+  RandomYCoord: 0
+  RandXStart: 0
+  RandXEnd: 0
+  RandYStart: 0
+  RandYEnd: 0
 --- !u!50 &920801190
 Rigidbody2D:
   serializedVersion: 4
@@ -3035,8 +3033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af0a83553feae094b9c258a1f8ed6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backButton: {fileID: 1383551067}
-  popUp: {fileID: 275620250}
+  BackButton: {fileID: 1383551067}
+  PopUp: {fileID: 275620250}
 --- !u!114 &1383551065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3049,9 +3047,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18908d2528019ce49b8f9056e0a49424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
-  buttonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
-  image: {fileID: 0}
+  ButtonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
+  ButtonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
+  SelectedImage: {fileID: 0}
 --- !u!212 &1383551066
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3297,7 +3295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1994813263557614099c87a384cec615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popUp: {fileID: 136365999}
+  PopUp: {fileID: 136365999}
 --- !u!225 &1500499441
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3796,7 +3794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec009a45f36cd294fbd2f3ff8691d8f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mlPlayerButton: {fileID: 0}
 --- !u!212 &1648353814
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3860,9 +3857,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18908d2528019ce49b8f9056e0a49424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
-  buttonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
-  image: {fileID: 0}
+  ButtonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
+  ButtonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
+  SelectedImage: {fileID: 0}
 --- !u!1 &1656037582
 GameObject:
   m_ObjectHideFlags: 0
@@ -3917,7 +3914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42846f4d3f3935a488fbb8170c40a338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hardButton: {fileID: 1656037587}
 --- !u!114 &1656037585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3930,9 +3926,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18908d2528019ce49b8f9056e0a49424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
-  buttonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
-  image: {fileID: 0}
+  ButtonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
+  ButtonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
+  SelectedImage: {fileID: 0}
 --- !u!212 &1656037586
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4536,7 +4532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cca0be739b34c44ebb8a1d549d6015b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onePlayerButton: {fileID: 0}
 --- !u!114 &2060353895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4549,9 +4544,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18908d2528019ce49b8f9056e0a49424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
-  buttonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
-  image: {fileID: 0}
+  ButtonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
+  ButtonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
+  SelectedImage: {fileID: 0}
 --- !u!1 &2093727229
 GameObject:
   m_ObjectHideFlags: 0
@@ -4767,9 +4762,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18908d2528019ce49b8f9056e0a49424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
-  buttonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
-  image: {fileID: 0}
+  ButtonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
+  ButtonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
+  SelectedImage: {fileID: 0}
 --- !u!212 &2102864009
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4833,8 +4828,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc0c82e75ca73541ba31984894656e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backButton: {fileID: 2102864011}
-  popUp: {fileID: 1500499440}
+  GameButton: {fileID: 2102864011}
+  PopUp: {fileID: 1500499440}
 --- !u!114 &2102864011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4971,7 +4966,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657339353a9f3404f98edd1a71c55fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mediumButton: {fileID: 2124587464}
 --- !u!114 &2124587462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4984,9 +4978,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18908d2528019ce49b8f9056e0a49424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
-  buttonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
-  image: {fileID: 0}
+  ButtonOne: {fileID: 21300000, guid: 820b6392d45353544b9abb69a550fff8, type: 3}
+  ButtonTwo: {fileID: 21300000, guid: 60449d9e3e5c04d439ecb2febe9ddbf5, type: 3}
+  SelectedImage: {fileID: 0}
 --- !u!212 &2124587463
 SpriteRenderer:
   m_ObjectHideFlags: 0

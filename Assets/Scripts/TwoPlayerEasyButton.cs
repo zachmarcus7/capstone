@@ -6,16 +6,15 @@ using UnityEngine.UI;
 
 public class TwoPlayerEasyButton : MonoBehaviour
 {
-	public Button easyButton;
+	public Button EasyButton;
 
-
-	void Start()
+	private void Start()
 	{
-		easyButton = GetComponent<Button>();
-		easyButton.onClick.AddListener(TaskOnClick);
+		EasyButton = GetComponent<Button>();
+		EasyButton.onClick.AddListener(OnClick);
 	}
 
-	void TaskOnClick()
+	private void OnClick()
 	{
 		SceneManager.LoadScene("TwoPlayerEasy");
 	}

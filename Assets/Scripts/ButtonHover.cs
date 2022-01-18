@@ -6,34 +6,37 @@ using UnityEngine.UI;
 
 public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public Sprite buttonOne;
-    public Sprite buttonTwo;
-    public Image image;
-    private bool mouseOver;
+    private bool _mouseOver;
+    public Sprite ButtonOne;
+    public Sprite ButtonTwo;
+    public Image SelectedImage;
 
-
-    void Start()
+    private void Start()
     {
-        mouseOver = false;
-        image = GetComponent<Image>();
-        image.sprite = buttonTwo;
+        _mouseOver = false;
+        SelectedImage = GetComponent<Image>();
+        SelectedImage.sprite = ButtonTwo;
     }
 
-    void Update()
+    private void Update()
     {
-        if (mouseOver)
-            image.sprite = buttonTwo;
+        if (_mouseOver)
+		{
+            SelectedImage.sprite = ButtonTwo;
+        }
         else
-            image.sprite = buttonOne;
+		{
+            SelectedImage.sprite = ButtonOne;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        mouseOver = true;
+        _mouseOver = true;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        mouseOver = false;
+        _mouseOver = false;
     }
 }

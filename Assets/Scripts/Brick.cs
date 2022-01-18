@@ -6,7 +6,7 @@ using UnityEngine;
 public class Brick 
 {
 	// these match up with the tags in the editor
-	public string[] colors = new string[] 
+	public string[] Colors = new string[] 
 	{
 		"GreenBrick",
 		"PurpleBrick",
@@ -17,7 +17,7 @@ public class Brick
 
 	// this is to keep track of which layer has been reached
 	// for applying new speeds with new layers
-	public bool[] layerReached = new bool[]
+	public bool[] LayerReached = new bool[]
 	{
 		false,
 		false,
@@ -26,9 +26,11 @@ public class Brick
 		false
 	};
 
-	public void resetLayers()
+	public void ResetLayers()
 	{
 		for (int i = 0; i < 5; i++)
-			layerReached[i] = false;
+		{
+			LayerReached[i] = false;
+		}
 	}
 }

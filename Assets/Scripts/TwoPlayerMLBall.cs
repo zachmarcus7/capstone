@@ -8,139 +8,137 @@ using UnityEngine.SceneManagement;
 
 public class TwoPlayerMLBall : MonoBehaviour
 {
-    public float speed = 1f;
-    public Brick brickReference;
-    public float randomXCoord;
-    public float randomYCoord;
-    public MLGameManager gm;
-    public TwoPlayerMLCountdown countdown;
-    private Rigidbody2D rigidBody;
-    private Vector3 previousVelocity;
-    private bool inPlay;
-    private int startDirection;
-    private Renderer visual;
-    private Scene scene;
+    private Rigidbody2D _rigidBody;
+    private Vector3 _previousVelocity;
+    private Brick _brickReference;
+    private bool _inPlay;
+    private int _startDirection;
+    private Renderer _visual;
+    private Scene _scene;
+    public MLGameManager Manager;
+    public TwoPlayerMLCountdown Countdown;                                                  
+    public float RandomXCoord;
+    public float RandomYCoord;
 
-
-    private void getComponents()
+    private void Start()
     {
-        // get necessary components
-        scene = SceneManager.GetActiveScene();
-        visual = GetComponent<Renderer>();
-        rigidBody = GetComponent<Rigidbody2D>();
-        brickReference = new Brick();
+        GetComponents();
+
+        // set startDirection depending on scene
+        if (_scene.name == "MLAgentScreen")
+		{
+            _startDirection = 200;
+        }
+        else
+		{
+            _startDirection = -200;                                       // CHANGED FOR TRAINING
+        }
+
+        InitializeCountdown();
+    }
+    private void GetComponents()
+    {
+        _scene = SceneManager.GetActiveScene();
+        _visual = GetComponent<Renderer>();
+        _rigidBody = GetComponent<Rigidbody2D>();
+        _brickReference = new Brick();
     }
 
-    private void initializeCountdown()
+    private void InitializeCountdown()
     {
         // start countdown to ball launch
-        visual.enabled = !visual.enabled;
-        transform.position = generateBallPosition();
-        //countdown.activateCountdown();                                   // CHANGED FOR TRAINING
+        _visual.enabled = !_visual.enabled;
+        transform.position = GenerateBallPosition();
+        //Countdown.activateCountdown();                                   // CHANGED FOR TRAINING
         AutomaticLaunch();
     }
 
-    void Start()
+    private void Update()
     {
-        getComponents();
-
-        // set startDirection depending on scene
-        if (scene.name == "MLAgentScreen")
-            startDirection = 200;
-        else
-            startDirection = -200;    // CHANGED FOR TRAINING
-
-        initializeCountdown();
-    }
-
-    void Update()
-    {
-        if (MLGameManager.instance.over)
+        if (MLGameManager.Instance.Over)
         {
             return;
         }
         else
         {
-            if (!inPlay)
+            if (!_inPlay)
             {
-                transform.position = generateBallPosition();
+                transform.position = GenerateBallPosition();
                 //countdown.activateCountdown();
                 AutomaticLaunch();                                       // CHANGED FOR TRAINING
             }
             else
             {
                 float yValue;
-                if (rigidBody.velocity.y > -1 && rigidBody.velocity.y < 1)
+                if (_rigidBody.velocity.y > -1 && _rigidBody.velocity.y < 1)
                 {
                     // check if the ball is moving up or down
-                    if (rigidBody.velocity.y <= 0)
+                    if (_rigidBody.velocity.y <= 0)
                         yValue = -1f;
                     else
                         yValue = 1f;
 
                     // make the ball go the minimum speed
                     Vector2 minimumVelocity = new Vector2(0, yValue);
-                    rigidBody.AddForce(minimumVelocity);
+                    _rigidBody.AddForce(minimumVelocity);
                 }
             }
-            previousVelocity = rigidBody.velocity;
+            _previousVelocity = _rigidBody.velocity;
         }
 
     }
 
     public void AutomaticLaunch()
     {
-        Renderer visual = GetComponent<Renderer>();
-        Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-200, 200), startDirection);
-        rigidBody.AddForce(direction);
-        inPlay = true;
-        visual.enabled = true;
+        Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-200, 200), _startDirection);
+        _rigidBody.AddForce(direction);
+        _inPlay = true;
+        _visual.enabled = true;
     }
 
-    private Vector3 generateBallPosition()
+    private Vector3 GenerateBallPosition()
     {
-        if (scene.name == "MLAgentScreen")
+        if (_scene.name == "MLAgentScreen")
 		{
-            randomXCoord = UnityEngine.Random.Range(2f, 9f);
-            randomYCoord = 2f;
-            return new Vector3(randomXCoord, randomYCoord, 0);
+            RandomXCoord = UnityEngine.Random.Range(2f, 9f);
+            RandomYCoord = 2f;
+            return new Vector3(RandomXCoord, RandomYCoord, 0);
         }
 		else
 		{
-            randomXCoord = UnityEngine.Random.Range(2f, 9f);
-            randomYCoord = 6.5f;
-            return new Vector3(randomXCoord, randomYCoord, 0);
+            RandomXCoord = UnityEngine.Random.Range(2f, 9f);
+            RandomYCoord = 6.5f;
+            return new Vector3(RandomXCoord, RandomYCoord, 0);
         }
     }
 
-    void decrementLives()
+    private void DecrementLives()
     {
-        Renderer visual = GetComponent<Renderer>();
-        gm.DecrementLives();
-        rigidBody.velocity = Vector2.zero;
-        inPlay = false;
-        visual.enabled = !visual.enabled;
+        Manager.DecrementLives();
+        _rigidBody.velocity = Vector2.zero;
+        _inPlay = false;
+        _visual.enabled = !_visual.enabled;
 
         // reset brick layers for speed
-        brickReference.resetLayers();
+        _brickReference.ResetLayers();
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    private void OnCollisionEnter2D(Collision2D col)
     {
         // check if ml bottom was hit
         if (col.collider.tag == "MLBottom")
 		{
-            decrementLives();
+            DecrementLives();
 		}
         else if (col.collider.tag == "PlayerBottom")
 		{
             // the ball has reached the other side, so the ml agent wins
-            gm.PlayerWin();
+            Manager.PlayerWin();
 		}
         // check if a brick was hit
-        else if (brickReference.colors.Contains(col.collider.tag))
+        else if (_brickReference.Colors.Contains(col.collider.tag))
         {
-            int index = Array.IndexOf(brickReference.colors, col.collider.tag);
+            int index = Array.IndexOf(_brickReference.Colors, col.collider.tag);
             Bounce(col.contacts[0].normal, index);
         }
         else
@@ -151,19 +149,19 @@ public class TwoPlayerMLBall : MonoBehaviour
 
     private void Bounce(Vector3 collisionNormal, int colorIndex)
     {
-        var speed = previousVelocity.magnitude;
-        var direction = Vector3.Reflect(previousVelocity.normalized, collisionNormal);
+        var speed = _previousVelocity.magnitude;
+        var direction = Vector3.Reflect(_previousVelocity.normalized, collisionNormal);
 
         // check if not bouncing off of a brick, or if the ball has already reached the layer
-        if ((colorIndex == -1) || (brickReference.layerReached[colorIndex] == true))
+        if ((colorIndex == -1) || (_brickReference.LayerReached[colorIndex] == true))
         {
-            rigidBody.velocity = direction * speed;
+            _rigidBody.velocity = direction * speed;
         }
         else
         {
             // increase the ball's speed by the layer's index multipled by 0.2
-            rigidBody.velocity = direction * (speed + (colorIndex * 0.2f));
-            brickReference.layerReached[colorIndex] = true;
+            _rigidBody.velocity = direction * (speed + (colorIndex * 0.2f));
+            _brickReference.LayerReached[colorIndex] = true;
         }
     }
 }

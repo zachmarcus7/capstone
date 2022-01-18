@@ -4,31 +4,34 @@ using UnityEngine;
 
 public class TwoPlayerPopUp : MonoBehaviour
 {
-    public static TwoPlayerPopUp instance;
-    public static bool active;
-    public GameObject popUp;
+    private bool _active;
+    public static TwoPlayerPopUp Instance;
+    public GameObject PopUp;
 
-
-    void Start()
+    private void Start()
     {
-        active = false;
+        _active = false;
     }
 
     public void Update()
     {
-        if (active)
-            popUp.SetActive(true);
+        if (_active)
+		{
+            PopUp.SetActive(true);
+        }
         else
-            popUp.SetActive(false);
+		{
+            PopUp.SetActive(false);
+        }
     }
 
-    public void makeActive()
+    public void MakeActive()
     {
-        active = true;
+        _active = true;
     }
 
-    public void makeInactive()
+    public void MakeInactive()
     {
-        active = false;
+        _active = false;
     }
 }

@@ -7,111 +7,115 @@ using UnityEngine.UI;
 
 public class MLGameManager : MonoBehaviour
 {
-    public static MLGameManager instance;
-    public Paddle paddle;
-    public int score;
-    public Text scoresText;
-    public Text livesText;
-    public int lives;
-    public int bricksBroken;
-    public bool over;
-    private Scene scene;
-    private int winningScore;
-
-
-    private void resetGame()
-	{
-        lives = 1000000;                                                // CHANGED FOR TRAINING
-        bricksBroken = 0;
-        scoresText.text = "Score: " + score.ToString();
-        livesText.text = "Lives: " + lives.ToString();
-        scene = SceneManager.GetActiveScene();
-        over = false;
-    }
+    private Scene _scene;
+    private int _winningScore;
+    public static MLGameManager Instance;
+    public int BricksBroken;
+    public int Score;
+    public int Lives;
+    public bool Over;
+    public Text ScoresText;
+    public Text LivesText;
 
     private void Start()
     {
-        resetGame();
+        ResetGame();
 
         // set up winning score for different modes                   
-        if (scene.name == "MLAgentScreen")
-            winningScore = 55;
+        if (_scene.name == "MLAgentScreen")
+		{
+            _winningScore = 55;
+        }
         else
-            winningScore = 43;
+		{
+            _winningScore = 43;
+        }
+    }
+
+    private void ResetGame()
+    {
+        Lives = 1000000;                                                // CHANGED FOR TRAINING
+        BricksBroken = 0;
+        ScoresText.text = "Score: " + Score.ToString();
+        LivesText.text = "Lives: " + Lives.ToString();
+        _scene = SceneManager.GetActiveScene();
+        Over = false;
     }
 
     private void Awake()
     {
-        if (MLGameManager.instance != null)
+        if (MLGameManager.Instance != null)
         {
             Destroy(gameObject);
             return;
         }
 
         // make sure there's only one instance of the GameManager
-        instance = this;
+        Instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
     public void IncrementPoints(int changeInScore)
     {
-        score += changeInScore;
-        scoresText.text = "Score: " + score.ToString();
-        bricksBroken++;
+        Score += changeInScore;
+        ScoresText.text = "Score: " + Score.ToString();
+        BricksBroken++;
 
         // check if agent has won the game
-        if (score == winningScore)
+        if (Score == _winningScore)
+		{
             PlayerWin();
-
+		}
     }
 
     public void DecrementLives()
     {
-        lives -= 1;
-        livesText.text = "Lives: " + lives.ToString();
+        Lives -= 1;
+        LivesText.text = "Lives: " + Lives.ToString();
 
         // check if agent has lost all their lives
-        if (lives < 1)
+        if (Lives < 1)
+		{
             PlayerDeath();
+        }
     }
 
     public void PlayerWin()
     {
         // check if we're in 1 player or 2 player mode
-        if (scene.name == "MLAgentScreen")
+        if (_scene.name == "MLAgentScreen")
         {
-            over = true;
-            destroyBallAndPaddle();
-            Pause.instance.ShowWinnerPopUp();
+            Over = true;
+            DestroyBallAndPaddle();
+            Pause.Instance.ShowWinnerPopUp();
         }
         else
         {
             // activate the game over screen, indicating ml agent won                     
-            over = true;
-            destroyBallAndPaddle();
-            Pause.instance.ShowEndPopUp();
+            Over = true;
+            DestroyBallAndPaddle();
+            Pause.Instance.ShowEndPopUp();
         }
     }
 
     public void PlayerDeath()
     {
         // check if we're in 1 player or 2 player mode
-        if (scene.name == "MLAgentScreen")
+        if (_scene.name == "MLAgentScreen")
         {
-            over = true;
-            destroyBallAndPaddle();
-            Pause.instance.ShowEndPopUp();
+            Over = true;
+            DestroyBallAndPaddle();
+            Pause.Instance.ShowEndPopUp();
         }
         else
         {
-            over = true;
-            destroyBallAndPaddle();
-            Pause.instance.ShowWinnerPopUp();
+            Over = true;
+            DestroyBallAndPaddle();
+            Pause.Instance.ShowWinnerPopUp();
         }
-
     }
 
-    public void destroyBallAndPaddle()
+    public void DestroyBallAndPaddle()
     {
         GameObject paddleObject = GameObject.Find("Agent (Paddle)");
         GameObject ballObject = GameObject.Find("MLBall");
