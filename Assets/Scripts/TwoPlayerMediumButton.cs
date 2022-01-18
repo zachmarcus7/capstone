@@ -1,22 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-
-
-public class TwoPlayerMediumButton : MonoBehaviour
+namespace MLBreakout
 {
-	private Button _mediumButton;
+    using UnityEngine;
+    using UnityEngine.SceneManagement;
+    using UnityEngine.UI;
 
-	private void Start()
-	{
-		_mediumButton = GetComponent<Button>();
-		_mediumButton.onClick.AddListener(OnClick);
-	}
+    /// <summary>
+    /// This is a simple button class used on a button to switch
+    /// scenes to the two-player medium scene.
+    /// </summary>
+    public class TwoPlayerMediumButton : MonoBehaviour
+    {
+        public Button MediumButton;
 
-	public void OnClick()
-	{
-		SceneManager.LoadScene("TwoPlayerMedium");
-	}
+        private void Start()
+        {
+            MediumButton = GetComponent<Button>();
+            MediumButton.onClick.AddListener(OnClick);
+        }
+
+        private void OnClick()
+        {
+            SceneManager.LoadScene("TwoPlayerMedium");
+        }
+    }
 }

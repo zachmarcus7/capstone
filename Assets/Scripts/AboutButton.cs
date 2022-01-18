@@ -4,7 +4,7 @@ namespace MLBreakout
     using UnityEngine.UI;
 
     /// <summary>
-    /// This is a simple button class used on a button to launch the
+    /// This is a simple button class used to launch the
     /// about pop up in the opening menu.
     /// </summary>
     public class AboutButton : MonoBehaviour

@@ -1,22 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-
-
-public class TwoPlayerHardButton : MonoBehaviour
+namespace MLBreakout
 {
-	private Button _hardButton;
+    using UnityEngine;
+    using UnityEngine.SceneManagement;
+    using UnityEngine.UI;
 
-	private void Start()
-	{
-		_hardButton = GetComponent<Button>();
-		_hardButton.onClick.AddListener(OnClick);
-	}
+    /// <summary>
+    /// This is a simple button class used on a button to switch
+    /// scenes to the two-player hard scene.
+    /// </summary>
+    public class TwoPlayerHardButton : MonoBehaviour
+    {
+        public Button HardButton;
 
-	public void OnClick()
-	{
-		SceneManager.LoadScene("TwoPlayerHard");
-	}
+        private void Start()
+        {
+            HardButton = GetComponent<Button>();
+            HardButton.onClick.AddListener(OnClick);
+        }
+
+        private void OnClick()
+        {
+            SceneManager.LoadScene("TwoPlayerHard");
+        }
+    }
 }

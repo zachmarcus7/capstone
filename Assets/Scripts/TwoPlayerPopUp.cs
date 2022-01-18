@@ -1,38 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-
-public class TwoPlayerPopUp : MonoBehaviour
+namespace MLBreakout
 {
-    private bool _active;
-    public static TwoPlayerPopUp Instance;
-    public GameObject PopUp;
+    using UnityEngine;
 
-    private void Start()
+    /// <summary>
+    /// Pop up that appears in opening menu.
+    /// Gives user option to select which map they want to play on.
+    /// </summary>
+    public class TwoPlayerPopUp : MonoBehaviour
     {
-        _active = false;
-    }
+        private bool _active;
+        public static TwoPlayerPopUp Instance;
+        public GameObject PopUp;
 
-    public void Update()
-    {
-        if (_active)
-		{
-            PopUp.SetActive(true);
+        private void Start()
+        {
+            _active = false;
         }
-        else
-		{
-            PopUp.SetActive(false);
+
+        public void Update()
+        {
+            if (_active)
+            {
+                PopUp.SetActive(true);
+            }
+            else
+            {
+                PopUp.SetActive(false);
+            }
         }
-    }
 
-    public void MakeActive()
-    {
-        _active = true;
-    }
+        public void MakeActive()
+        {
+            _active = true;
+        }
 
-    public void MakeInactive()
-    {
-        _active = false;
+        public void MakeInactive()
+        {
+            _active = false;
+        }
     }
 }

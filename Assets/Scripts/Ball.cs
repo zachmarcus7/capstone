@@ -2,9 +2,13 @@ namespace MLBreakout
 {
     using UnityEngine;
     using UnityEngine.SceneManagement;
+    using System.Linq;
+    using System;
 
     /// <summary>
     /// This is used for the ball in one-player mode.
+    /// It manages the ball's speed and what happens
+    /// when collisions occur.
     /// </summary>
     public class Ball : MonoBehaviour
     {
@@ -25,22 +29,20 @@ namespace MLBreakout
         private void Start()
         {
             GetComponents();
-            InitializeCountdown();
+            Countdown.ActivateCountdown();
         }
 
+        // this gets all the required components to launch the ball
         private void GetComponents()
         {
             _scene = SceneManager.GetActiveScene();
-            _visual = GetComponent<Renderer>();
             _rigidBody = GetComponent<Rigidbody2D>();
             _brickReference = new Brick();
-        }
-
-        private void InitializeCountdown()
-        {
-            _visual.enabled = !_visual.enabled;
             transform.position = GenerateBallPosition();
-            Countdown.ActivateCountdown();
+
+            // make the ball disappear until the countdown ends
+            _visual = GetComponent<Renderer>();
+            _visual.enabled = !_visual.enabled;
         }
 
         private void Update()

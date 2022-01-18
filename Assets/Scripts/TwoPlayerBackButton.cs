@@ -1,23 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-
-
-public class TwoPlayerBackButton : MonoBehaviour
+namespace MLBreakout
 {
-	public Button BackButton;
-	public TwoPlayerPopUp PopUp;
+    using UnityEngine;
+    using UnityEngine.UI;
 
-	private void Start()
-	{
-		BackButton = GetComponent<Button>();
-		BackButton.onClick.AddListener(OnClick);
-	}
+    /// <summary>
+    /// This is a simple button class used to close the pop
+    /// up for choosing a two-player level in the opening menu. 
+    /// </summary>
+    public class TwoPlayerBackButton : MonoBehaviour
+    {
+        public Button BackButton;
+        public TwoPlayerPopUp PopUp;
 
-	public void OnClick()
-	{
-		PopUp.MakeInactive();
-	}
+        private void Start()
+        {
+            BackButton = GetComponent<Button>();
+            BackButton.onClick.AddListener(OnClick);
+        }
+
+        public void OnClick()
+        {
+            PopUp.MakeInactive();
+        }
+    }
 }
