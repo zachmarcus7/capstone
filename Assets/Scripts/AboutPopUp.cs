@@ -4,7 +4,7 @@ namespace MLBreakout
 
     /// <summary>
     /// Pop up that appears in opening menu.
-    /// It explains what game is about.
+    /// It explains what the game is about.
     /// </summary>
     public class AboutPopUp : MonoBehaviour
     {
