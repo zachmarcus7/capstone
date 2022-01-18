@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class AboutButton : MonoBehaviour
 {
-	public Button GameButton;
+    public Button GameButton;
 	public AboutPopUp PopUp;
 
 	private void Start()
