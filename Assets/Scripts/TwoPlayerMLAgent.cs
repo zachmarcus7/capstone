@@ -6,6 +6,7 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine.SceneManagement;
 
+
 public class TwoPlayerMLAgent : Agent
 {
 	private float _moveSpeed;

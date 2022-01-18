@@ -1859,15 +1859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7731d21b277d904fb00dfb279e1986a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inPlay: 0
-  RigidBody: {fileID: 920801190}
-  PreviousVelocity: {x: 0, y: 0, z: 0}
-  RandomXCoord: 0
-  RandomYCoord: 0
-  RandXStart: 0
-  RandXEnd: 0
-  RandYStart: 0
-  RandYEnd: 0
 --- !u!50 &920801190
 Rigidbody2D:
   serializedVersion: 4
@@ -1898,7 +1889,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 920801186}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: d45ede9b56b60e3499ee86bfb0a53014, type: 2}
+  m_Material: {fileID: 6200000, guid: 42e67edc55ce0f84f9d360e7e82f17b7, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -3295,6 +3286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1994813263557614099c87a384cec615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Instance: {fileID: 0}
   PopUp: {fileID: 136365999}
 --- !u!225 &1500499441
 CanvasGroup:

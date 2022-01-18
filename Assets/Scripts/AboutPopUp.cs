@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class AboutPopUp : MonoBehaviour
 {
     private static bool _active;
-    public static AboutPopUp Instance;
+    public AboutPopUp Instance;
     public GameObject PopUp;
 
     private void Start()
@@ -16,9 +17,13 @@ public class AboutPopUp : MonoBehaviour
     private void Update()
     {
         if (_active)
+		{
             PopUp.SetActive(true);
+        }
         else
-            PopUp.SetActive(false); 
+		{
+            PopUp.SetActive(false);
+        }
     }
 
     public void MakeActive()

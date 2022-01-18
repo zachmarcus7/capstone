@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Paddle : MonoBehaviour
 {
     private Vector3 _lastMousePosition;

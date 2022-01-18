@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class TwoPlayerPopUp : MonoBehaviour
 {
     private bool _active;

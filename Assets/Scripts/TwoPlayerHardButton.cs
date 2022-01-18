@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class TwoPlayerHardButton : MonoBehaviour
 {
 	private Button _hardButton;

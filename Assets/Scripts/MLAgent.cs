@@ -6,6 +6,7 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine.SceneManagement;
 
+
 public class MLAgent : Agent
 {
 	private Vector3 _previousBallLocation;
