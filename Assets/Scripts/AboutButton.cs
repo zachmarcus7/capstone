@@ -7,17 +7,17 @@ using UnityEngine.UI;
 
 public class AboutButton : MonoBehaviour
 {
-	public Button GameButton;
-	public AboutPopUp PopUp;
+  public Button GameButton;
+  public AboutPopUp PopUp;
 
-	private void Start()
-	{
-		GameButton = GetComponent<Button>();
-		GameButton.onClick.AddListener(OnClick);
-	}
+  private void Start()
+  {
+    GameButton = GetComponent<Button>();
+    GameButton.onClick.AddListener(OnClick);
+  }
 
-	public void OnClick()
-	{
-		PopUp.MakeActive();
-	}
+  public void OnClick()
+  {
+    PopUp.MakeActive();
+  }
 }
