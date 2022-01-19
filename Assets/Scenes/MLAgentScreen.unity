@@ -2475,7 +2475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea21c1f6479c8f449e0566e20aac798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedPaddle: {fileID: 0}
   BricksBroken: 0
   Score: 0
   Lives: 0

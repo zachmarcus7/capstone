@@ -3,6 +3,7 @@ namespace MLBreakout
     using UnityEngine;
     using System.Linq;
     using System;
+    using UnityEngine.SceneManagement;
 
     /// <summary>
     /// This is used for the player's ball in two-player mode.
@@ -14,10 +15,12 @@ namespace MLBreakout
         private bool _inPlay;
         private float _randomXCoord;
         private float _yValue;
+        private int _startDirection;
         private Brick _brickReference;
         private Vector3 _previousVelocity;
         private Renderer _visual;
         private Rigidbody2D _rigidBody;
+        private Scene _scene;
         public float RandomYCoord;
         public float RandXStart;
         public float RandXEnd;
@@ -27,12 +30,14 @@ namespace MLBreakout
         private void Start()
         {
             GetComponents();
+            SetBallDirection();
             Countdown.ActivateCountdown();
         }
 
         // this gets all the required components to launch the ball
         private void GetComponents()
         {
+            _scene = SceneManager.GetActiveScene();
             _rigidBody = GetComponent<Rigidbody2D>();
             _brickReference = new Brick();
             transform.position = GenerateBallPosition();
@@ -40,6 +45,27 @@ namespace MLBreakout
             // make the ball disappear until the countdown ends
             _visual = GetComponent<Renderer>();
             _visual.enabled = !_visual.enabled;
+        }
+
+        // this sets the y axis startDirection depending on the scene
+        private void SetBallDirection()
+        {
+            if (_scene.name == "Main")
+            {
+                _startDirection = 260;
+            }
+            else if (_scene.name == "TwoPlayerHard")
+            {
+                _startDirection = 300;
+            }
+            else if (_scene.name == "TwoPlayerMedium")
+            {
+                _startDirection = 200;
+            }
+            else
+            {
+                _startDirection = 170;
+            }
         }
 
         private void Update()
@@ -89,7 +115,7 @@ namespace MLBreakout
 
         public void AutomaticLaunch()
         {
-            Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-260, 260), 170);
+            Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-260, 260), _startDirection);
             _rigidBody.AddForce(direction);
             _inPlay = true;
             _visual.enabled = true;

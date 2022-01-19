@@ -28,25 +28,38 @@ namespace MLBreakout
         private void Start()
         {
             GetComponents();
-
-            // set startDirection depending on scene
-            if (_scene.name == "MLAgentScreen")
-            {
-                _startDirection = 230;
-            }
-            else
-            {
-                _startDirection = -200;                                       // CHANGED FOR TRAINING
-            }
-
+            SetBallDirection();
             InitializeCountdown();
         }
+
+        // this gets all the required components to launch the ball
         private void GetComponents()
         {
             _scene = SceneManager.GetActiveScene();
             _visual = GetComponent<Renderer>();
             _rigidBody = GetComponent<Rigidbody2D>();
             _brickReference = new Brick();
+        }
+
+        // this sets the y axis startDirection depending on the scene
+        private void SetBallDirection()
+        {
+            if (_scene.name == "MLAgentScreen")
+            {
+                _startDirection = 280;  // 260
+            }
+            else if (_scene.name == "TwoPlayerHard")
+            {
+                _startDirection = 330;  // 300
+            }
+            else if (_scene.name == "TwoPlayerMedium")
+            {
+                _startDirection = 200;
+            }
+            else
+            {
+                _startDirection = 170;
+            }
         }
 
         private void InitializeCountdown()
@@ -95,7 +108,7 @@ namespace MLBreakout
 
         public void AutomaticLaunch()
         {
-            Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-200, 200), _startDirection);
+            Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-260, 260), _startDirection);
             _rigidBody.AddForce(direction);
             _inPlay = true;
             _visual.enabled = true;

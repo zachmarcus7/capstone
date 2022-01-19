@@ -112,7 +112,7 @@ namespace MLBreakout
             transform.localPosition += new Vector3(moveX * 3f, 0, 0) * Time.deltaTime * MoveSpeed;
         }
 
-        void OnCollisionEnter2D(Collision2D coll)
+        private void OnCollisionEnter2D(Collision2D coll)
         {
             if (coll.gameObject.tag == "MLBall")
             {
