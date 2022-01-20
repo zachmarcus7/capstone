@@ -12,6 +12,7 @@ namespace MLBreakout
     /// </summary>
     public class Ball : MonoBehaviour
     {
+        private bool _firstServeCompleted;
         private bool _inPlay;
         private float _randomXCoord;
         private float _yValue;
@@ -28,8 +29,12 @@ namespace MLBreakout
 
         private void Start()
         {
+            _firstServeCompleted = false;
             GetComponents();
             Countdown.ActivateCountdown();
+
+            // let the game know the first serve has been dealt
+            _firstServeCompleted = true;
         }
 
         // this gets all the required components to launch the ball
@@ -48,6 +53,12 @@ namespace MLBreakout
         private void Update()
         {
             if (GameManager.Instance.Over)
+            {
+                return;
+            }
+
+            // this is here to make sure the countdown doesn't get reactivated on the first serve
+            if (!_firstServeCompleted)
             {
                 return;
             }

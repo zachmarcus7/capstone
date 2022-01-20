@@ -18,10 +18,9 @@ namespace MLBreakout
 
         private void OnCollisionEnter2D(Collision2D coll)
         {
-            /*
             if (coll.gameObject.tag == "MLBall")                           
             {
-                if (!_hasBeenHit)                                             // CHANGED FOR TRAINING
+                if (!_hasBeenHit)                                             
                 {
                     _hasBeenHit = true;
 
@@ -32,7 +31,6 @@ namespace MLBreakout
                     Destroy(gameObject);
                 }
             }
-            */
         }
     }
 }

@@ -94,7 +94,7 @@ namespace MLBreakout
         public void PlayerDeath()
         {
             DestroyPaddle();
-            //Pause.instance.ShowEndPopUp();                        // CHANGED FOR TRAINING
+            Pause.Instance.ShowEndPopUp();
         }
 
         public void DestroyCurrentGame()

@@ -17,6 +17,8 @@ namespace MLBreakout
         private Vector3 _previousVelocity;
         private Brick _brickReference;
         private bool _inPlay;
+        private bool _firstServeCompleted;
+        private float _yValue;
         private int _startDirection;
         private Renderer _visual;
         private Scene _scene;
@@ -27,83 +29,98 @@ namespace MLBreakout
 
         private void Start()
         {
+            _firstServeCompleted = false;
             GetComponents();
             SetBallDirection();
-            InitializeCountdown();
+            Countdown.ActivateCountdown();
+
+            // let the game know the first serve has been dealt
+            _firstServeCompleted = true;
         }
 
         // this gets all the required components to launch the ball
         private void GetComponents()
         {
             _scene = SceneManager.GetActiveScene();
-            _visual = GetComponent<Renderer>();
             _rigidBody = GetComponent<Rigidbody2D>();
             _brickReference = new Brick();
+            transform.position = GenerateBallPosition();
+
+            // make the ball disappear until the countdown ends
+            _visual = GetComponent<Renderer>();
+            _visual.enabled = !_visual.enabled;
         }
 
         // this sets the y axis startDirection depending on the scene
         private void SetBallDirection()
         {
-            if (_scene.name == "MLAgentScreen")
+            if (_scene.name == "Main")
             {
-                _startDirection = 280;  // 260
+                _startDirection = 260;
             }
             else if (_scene.name == "TwoPlayerHard")
             {
-                _startDirection = 330;  // 300
+                _startDirection = -220;
             }
             else if (_scene.name == "TwoPlayerMedium")
             {
-                _startDirection = 200;
+                _startDirection = -180;
             }
             else
             {
-                _startDirection = 170;
+                _startDirection = -160;
             }
-        }
-
-        private void InitializeCountdown()
-        {
-            // start countdown to ball launch
-            _visual.enabled = !_visual.enabled;
-            transform.position = GenerateBallPosition();
-            //Countdown.activateCountdown();                                   // CHANGED FOR TRAINING
-            AutomaticLaunch();
         }
 
         private void Update()
         {
-            if (MLGameManager.Instance.Over)
+            if (GameManager.Instance.Over)
             {
                 return;
             }
-            else
-            {
-                if (!_inPlay)
-                {
-                    transform.position = GenerateBallPosition();
-                    //countdown.activateCountdown();
-                    AutomaticLaunch();                                       // CHANGED FOR TRAINING
-                }
-                else
-                {
-                    float yValue;
-                    if (_rigidBody.velocity.y > -1 && _rigidBody.velocity.y < 1)
-                    {
-                        // check if the ball is moving up or down
-                        if (_rigidBody.velocity.y <= 0)
-                            yValue = -1f;
-                        else
-                            yValue = 1f;
 
-                        // make the ball go the minimum speed
-                        Vector2 minimumVelocity = new Vector2(0, yValue);
-                        _rigidBody.AddForce(minimumVelocity);
-                    }
-                }
-                _previousVelocity = _rigidBody.velocity;
+            // this is here to make sure the countdown doesn't get reactivated on the first serve
+            if (!_firstServeCompleted)
+            {
+                return;
             }
 
+            if (!_inPlay)
+            {
+                // reset ball and start countdown
+                transform.position = GenerateBallPosition();
+                Countdown.ActivateCountdown();
+            }
+            else
+            {
+                // if ball is going too slow, make sure it goes back to min speed
+                if (_rigidBody.velocity.y > -1 && _rigidBody.velocity.y < 1)
+                {
+                    ApplyMinSpeed();
+                }
+            }
+            _previousVelocity = _rigidBody.velocity;
+        }
+
+        private float UpOrDown()
+        {
+            // check if the ball is moving up or down
+            if (_rigidBody.velocity.y <= 0)
+            {
+                return -1f;
+            }
+            else
+            {
+                return 1f;
+            }
+        }
+
+        private void ApplyMinSpeed()
+        {
+            // make the ball go minimum speed
+            _yValue = UpOrDown();
+            Vector2 minimumVelocity = new Vector2(0, _yValue);
+            _rigidBody.AddForce(minimumVelocity);
         }
 
         public void AutomaticLaunch()

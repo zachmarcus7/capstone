@@ -13,6 +13,7 @@ namespace MLBreakout
     public class TwoPlayerBall : MonoBehaviour
     {
         private bool _inPlay;
+        private bool _firstServeCompleted;
         private float _randomXCoord;
         private float _yValue;
         private int _startDirection;
@@ -29,9 +30,13 @@ namespace MLBreakout
 
         private void Start()
         {
+            _firstServeCompleted = false;
             GetComponents();
             SetBallDirection();
             Countdown.ActivateCountdown();
+
+            // let the game know the first serve has been dealt
+            _firstServeCompleted = true;
         }
 
         // this gets all the required components to launch the ball
@@ -56,21 +61,27 @@ namespace MLBreakout
             }
             else if (_scene.name == "TwoPlayerHard")
             {
-                _startDirection = 300;
+                _startDirection = 220;
             }
             else if (_scene.name == "TwoPlayerMedium")
             {
-                _startDirection = 200;
+                _startDirection = 180;
             }
             else
             {
-                _startDirection = 170;
+                _startDirection = 160;
             }
         }
 
         private void Update()
         {
             if (GameManager.Instance.Over)
+            {
+                return;
+            }
+
+            // this is here to make sure the countdown doesn't get reactivated on the first serve
+            if (!_firstServeCompleted)
             {
                 return;
             }

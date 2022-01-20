@@ -11097,24 +11097,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1076947958}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1076947960 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 715171408600944223, guid: 8bd1e71f2932ae8419b9d7deced31c1a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1076947958}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1076947961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076947960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ede03521087d48542bbb8c7184e086b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1109276891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19675,7 +19657,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 5808d5f2eedf50f47ada3e5de536f714, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: d121270b8a1a43b4292c149eacf7b8a1, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: MLAgent
