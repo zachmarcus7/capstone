@@ -74,7 +74,7 @@ namespace MLBreakout
 
         private void Update()
         {
-            if (GameManager.Instance.Over)
+            if (Manager.Over)
             {
                 return;
             }
