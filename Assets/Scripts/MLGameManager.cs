@@ -32,7 +32,7 @@ namespace MLBreakout
             }
             else
             {
-                _winningScore = 43;
+                _winningScore = 10000000;                                              // CHANGED FOR TRAINING
             }
         }
 

@@ -18,6 +18,7 @@ namespace MLBreakout
 
         private void OnCollisionEnter2D(Collision2D coll)
         {
+            /*
             if (!_hasBeenHit)
             {
                 _hasBeenHit = true; 
@@ -35,6 +36,9 @@ namespace MLBreakout
 
             // remove the brick from the game
             Destroy(gameObject);
+
+            */
         }
+           
     }
 }
