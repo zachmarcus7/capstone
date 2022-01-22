@@ -2701,8 +2701,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Manager: {fileID: 750711412}
   Countdown: {fileID: 1612460308011740089}
-  RandomXCoord: 0
-  RandomYCoord: 0
+  RandomYCoord: 6.5
+  RandXStart: 2
+  RandXEnd: 9
 --- !u!50 &280539027
 Rigidbody2D:
   serializedVersion: 4

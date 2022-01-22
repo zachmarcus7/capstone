@@ -2416,7 +2416,7 @@ GameObject:
   - component: {fileID: 280539024}
   - component: {fileID: 280539025}
   m_Layer: 9
-  m_Name: Ball
+  m_Name: MLBall
   m_TagString: MLBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2452,8 +2452,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Manager: {fileID: 750711412}
   Countdown: {fileID: 1612460307774343250}
-  RandomXCoord: 0
-  RandomYCoord: 0
+  RandomYCoord: 6.5
+  RandXStart: 2
+  RandXEnd: 9
 --- !u!50 &280539027
 Rigidbody2D:
   serializedVersion: 4
@@ -2534,11 +2535,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280539023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 6, z: 0}
+  m_LocalPosition: {x: 9, y: 6.5, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &293698026
 PrefabInstance:
@@ -4358,7 +4359,7 @@ GameObject:
   - component: {fileID: 455267855}
   - component: {fileID: 455267854}
   m_Layer: 0
-  m_Name: GameManager (1)
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6327,7 +6328,7 @@ GameObject:
   - component: {fileID: 764608315}
   - component: {fileID: 764608316}
   m_Layer: 9
-  m_Name: Ball (1)
+  m_Name: PlayerBall
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6362,7 +6363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RandomYCoord: 1
-  RandXStart: 1
+  RandXStart: 2
   RandXEnd: 9
   Manager: {fileID: 455267854}
   Countdown: {fileID: 3806319715538797984}
@@ -6450,7 +6451,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &782369887
 PrefabInstance:
@@ -21314,7 +21315,7 @@ RectTransform:
   m_Children:
   - {fileID: 1612460307774343251}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -21561,7 +21562,7 @@ RectTransform:
   m_Children:
   - {fileID: 3806319715538797968}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

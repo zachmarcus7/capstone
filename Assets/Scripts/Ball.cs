@@ -16,6 +16,8 @@ namespace MLBreakout
         private bool _inPlay;
         private float _randomXCoord;
         private float _yValue;
+        private int _yStart;
+        private int _xStart;
         private Brick _brickReference;
         private Scene _scene;
         private Vector3 _previousVelocity;
@@ -40,6 +42,8 @@ namespace MLBreakout
         // this gets all the required components to launch the ball
         private void GetComponents()
         {
+            _xStart = 260;
+            _yStart = 260;
             _scene = SceneManager.GetActiveScene();
             _rigidBody = GetComponent<Rigidbody2D>();
             _brickReference = new Brick();
@@ -101,9 +105,29 @@ namespace MLBreakout
             _rigidBody.AddForce(minimumVelocity);
         }
 
+        public int RandomDirection()
+        {
+            // randomly choose a number between -1 or 1
+            // -1 means the ball will go left, 1 means it'll go right
+            float randomChoice = UnityEngine.Random.Range(0f, 2f);
+            if (randomChoice < 1f)
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+
         public void AutomaticLaunch()
         {
-            Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-260, 260), 260);
+            // see if ball goes right or left
+            int horizontal = RandomDirection();
+            _xStart *= horizontal;
+
+            // apply force to ball
+            Vector2 direction = new Vector2(_xStart, _yStart);
             _rigidBody.AddForce(direction);
             _inPlay = true;
             _visual.enabled = true;

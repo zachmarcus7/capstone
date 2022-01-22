@@ -18,6 +18,7 @@ namespace MLBreakout
 
         private void OnCollisionEnter2D(Collision2D coll)
         {
+            /*
             if (coll.gameObject.tag == "MLBall")                           
             {
                 if (!_hasBeenHit)                                             
@@ -31,6 +32,7 @@ namespace MLBreakout
                     Destroy(gameObject);
                 }
             }
+            */
         }
     }
 }

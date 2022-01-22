@@ -1019,7 +1019,7 @@ GameObject:
   - component: {fileID: 280539024}
   - component: {fileID: 280539025}
   m_Layer: 9
-  m_Name: Ball
+  m_Name: MLBall
   m_TagString: MLBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1055,8 +1055,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Manager: {fileID: 750711412}
   Countdown: {fileID: 992941699}
-  RandomXCoord: 0
-  RandomYCoord: 0
+  RandomYCoord: 2
+  RandXStart: 2
+  RandXEnd: 9
 --- !u!50 &280539027
 Rigidbody2D:
   serializedVersion: 4
@@ -1137,11 +1138,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280539023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: 2, z: 0}
+  m_LocalPosition: {x: 2, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &286075709
 PrefabInstance:
@@ -2345,7 +2346,7 @@ Transform:
   m_LocalScale: {x: 12.25587, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1001 &743177034
 PrefabInstance:
@@ -3203,7 +3204,7 @@ PrefabInstance:
     - target: {fileID: 1612460306629476235, guid: 1561110f9f66cd544bdafcc951a7626f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1612460306629476235, guid: 1561110f9f66cd544bdafcc951a7626f,
         type: 3}
@@ -4482,7 +4483,7 @@ Transform:
   m_LocalScale: {x: 12.25587, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 22.563, y: 0, z: 90}
 --- !u!1001 &1176547984
 PrefabInstance:
@@ -9114,7 +9115,7 @@ Transform:
   m_Children:
   - {fileID: 1721220883}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1515545344
 PrefabInstance:
@@ -9943,8 +9944,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701585640}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.58, y: 0.68549967, z: 0}
-  m_LocalScale: {x: 1.6, y: 1, z: 1}
+  m_LocalPosition: {x: 0.15, y: 0.68549967, z: 0}
+  m_LocalScale: {x: 1.8, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 750711413}
   m_RootOrder: 0
@@ -10007,8 +10008,8 @@ MonoBehaviour:
   MaxStep: 0
   Target: {fileID: 280539023}
   MoveSpeed: 0
-  RightScreenEdge: 10.57
-  LeftScreenEdge: 0.05
+  RightScreenEdge: 10.45
+  LeftScreenEdge: 0.15
   PreviousPaddlePosition: 0
   Input: 0
   PreviousBricksBroken: 0
@@ -12118,7 +12119,7 @@ RectTransform:
   m_Children:
   - {fileID: 1425560868989701087}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

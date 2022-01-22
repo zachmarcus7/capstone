@@ -28,7 +28,7 @@ namespace MLBreakout
             // set up winning score for different modes                   
             if (_scene.name == "MLAgentScreen")
             {
-                _winningScore = 55;
+                _winningScore = 10000000;                                              // CHANGED FOR TRAINING
             }
             else
             {
@@ -38,7 +38,7 @@ namespace MLBreakout
 
         private void ResetGame()
         {
-            Lives = 5;
+            Lives = 1000000;                                                      // CHANGED FOR TRAINING
             BricksBroken = 0;
             ScoresText.text = "Score: " + Score.ToString();
             LivesText.text = "Lives: " + Lives.ToString();

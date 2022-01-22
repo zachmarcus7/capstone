@@ -16,7 +16,8 @@ namespace MLBreakout
         private bool _firstServeCompleted;
         private float _randomXCoord;
         private float _yValue;
-        private int _startDirection;
+        private int _yStart;
+        private int _xStart;
         private Brick _brickReference;
         private Vector3 _previousVelocity;
         private Renderer _visual;
@@ -42,6 +43,7 @@ namespace MLBreakout
         // this gets all the required components to launch the ball
         private void GetComponents()
         {
+            _xStart = 260;
             _scene = SceneManager.GetActiveScene();
             _rigidBody = GetComponent<Rigidbody2D>();
             _brickReference = new Brick();
@@ -57,19 +59,19 @@ namespace MLBreakout
         {
             if (_scene.name == "Main")
             {
-                _startDirection = 260;
+                _yStart = 260;
             }
             else if (_scene.name == "TwoPlayerHard")
             {
-                _startDirection = 220;
+                _yStart = 210;
             }
             else if (_scene.name == "TwoPlayerMedium")
             {
-                _startDirection = 180;
+                _yStart = 185;
             }
             else
             {
-                _startDirection = 160;
+                _yStart = 170;
             }
         }
 
@@ -124,9 +126,29 @@ namespace MLBreakout
             _rigidBody.AddForce(minimumVelocity);
         }
 
+        public int RandomDirection()
+        {
+            // randomly choose a number between -1 or 1
+            // -1 means the ball will go left, 1 means it'll go right
+            float randomChoice = UnityEngine.Random.Range(0f, 2f);
+            if (randomChoice < 1f)
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+
         public void AutomaticLaunch()
         {
-            Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-260, 260), _startDirection);
+            // see if ball goes right or left
+            int horizontal = RandomDirection();
+            _xStart *= horizontal;
+
+            // apply force to ball
+            Vector2 direction = new Vector2(_xStart, _yStart);
             _rigidBody.AddForce(direction);
             _inPlay = true;
             _visual.enabled = true;

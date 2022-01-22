@@ -19,13 +19,16 @@ namespace MLBreakout
         private bool _inPlay;
         private bool _firstServeCompleted;
         private float _yValue;
-        private int _startDirection;
+        private float _randomXCoord;
+        private int _yStart;
+        private int _xStart;
         private Renderer _visual;
         private Scene _scene;
         public MLGameManager Manager;
         public TwoPlayerMLCountdown Countdown;
-        public float RandomXCoord;
         public float RandomYCoord;
+        public float RandXStart;
+        public float RandXEnd;
 
         private void Start()
         {
@@ -41,6 +44,7 @@ namespace MLBreakout
         // this gets all the required components to launch the ball
         private void GetComponents()
         {
+            _xStart = 260;
             _scene = SceneManager.GetActiveScene();
             _rigidBody = GetComponent<Rigidbody2D>();
             _brickReference = new Brick();
@@ -54,21 +58,21 @@ namespace MLBreakout
         // this sets the y axis startDirection depending on the scene
         private void SetBallDirection()
         {
-            if (_scene.name == "Main")
+            if (_scene.name == "MLAgentScreen")
             {
-                _startDirection = 260;
+                _yStart = 260;
             }
             else if (_scene.name == "TwoPlayerHard")
             {
-                _startDirection = -220;
+                _yStart = -210;
             }
             else if (_scene.name == "TwoPlayerMedium")
             {
-                _startDirection = -180;
+                _yStart = -185;
             }
             else
             {
-                _startDirection = -160;
+                _yStart = -170;
             }
         }
 
@@ -123,9 +127,29 @@ namespace MLBreakout
             _rigidBody.AddForce(minimumVelocity);
         }
 
+        public int RandomDirection()
+        {
+            // randomly choose a number between -1 or 1
+            // -1 means the ball will go left, 1 means it'll go right
+            float randomChoice = UnityEngine.Random.Range(0f, 2f);
+            if (randomChoice < 1f)
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+
         public void AutomaticLaunch()
         {
-            Vector2 direction = new Vector2((float)UnityEngine.Random.Range(-260, 260), _startDirection);
+            // see if ball goes right or left
+            int horizontal = RandomDirection();
+            _xStart *= horizontal;
+
+            // apply force to ball
+            Vector2 direction = new Vector2(_xStart, _yStart);
             _rigidBody.AddForce(direction);
             _inPlay = true;
             _visual.enabled = true;
@@ -133,18 +157,8 @@ namespace MLBreakout
 
         private Vector3 GenerateBallPosition()
         {
-            if (_scene.name == "MLAgentScreen")
-            {
-                RandomXCoord = UnityEngine.Random.Range(2f, 9f);
-                RandomYCoord = 2f;
-                return new Vector3(RandomXCoord, RandomYCoord, 0);
-            }
-            else
-            {
-                RandomXCoord = UnityEngine.Random.Range(2f, 9f);
-                RandomYCoord = 6.5f;
-                return new Vector3(RandomXCoord, RandomYCoord, 0);
-            }
+            _randomXCoord = UnityEngine.Random.Range(RandXStart, RandXEnd);
+            return new Vector3(_randomXCoord, RandomYCoord, 0);
         }
 
         private void DecrementLives()

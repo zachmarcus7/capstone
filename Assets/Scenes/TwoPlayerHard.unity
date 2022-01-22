@@ -1586,7 +1586,7 @@ GameObject:
   - component: {fileID: 280539024}
   - component: {fileID: 280539025}
   m_Layer: 9
-  m_Name: Ball
+  m_Name: MLBall
   m_TagString: MLBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1622,8 +1622,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Manager: {fileID: 750711412}
   Countdown: {fileID: 929361392}
-  RandomXCoord: 0
-  RandomYCoord: 0
+  RandomYCoord: 6.5
+  RandXStart: 2
+  RandXEnd: 9
 --- !u!50 &280539027
 Rigidbody2D:
   serializedVersion: 4
@@ -1708,7 +1709,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &282756450
 PrefabInstance:
@@ -7610,7 +7611,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &768790029
 PrefabInstance:
@@ -8717,7 +8718,7 @@ PrefabInstance:
     - target: {fileID: 1612460306629476235, guid: 1561110f9f66cd544bdafcc951a7626f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1612460306629476235, guid: 1561110f9f66cd544bdafcc951a7626f,
         type: 3}
@@ -25589,7 +25590,7 @@ RectTransform:
   m_Children:
   - {fileID: 3806319715538797968}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
