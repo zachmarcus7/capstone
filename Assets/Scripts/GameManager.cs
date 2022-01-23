@@ -38,7 +38,7 @@ namespace MLBreakout
 
         private void ResetGame()
         {
-            Lives = 100000;                                                // CHANGED FOR TRAINING
+            Lives = 5;
             Over = false;
             ScoresText.text = "Score: " + Score.ToString();
             LivesText.text = "Lives: " + Lives.ToString();

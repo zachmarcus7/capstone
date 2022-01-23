@@ -48,14 +48,14 @@ namespace MLBreakout
             // check if any bricks have been broken
             if (MLGameManager.Instance.BricksBroken != PreviousBricksBroken)
             {
-                //AddReward(+1f);
+                AddReward(+1f);
                 PreviousBricksBroken = MLGameManager.Instance.BricksBroken;
             }
 
             // check if any lives have been lost
             if (MLGameManager.Instance.Lives != PreviousLives)
             {
-                //AddReward(-0.5f);
+                AddReward(-1f);
                 PreviousLives = MLGameManager.Instance.Lives;
                 EndEpisode();
             }

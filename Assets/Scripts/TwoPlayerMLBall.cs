@@ -44,7 +44,6 @@ namespace MLBreakout
         // this gets all the required components to launch the ball
         private void GetComponents()
         {
-            _xStart = 260;
             _scene = SceneManager.GetActiveScene();
             _rigidBody = GetComponent<Rigidbody2D>();
             _brickReference = new Brick();
@@ -61,18 +60,22 @@ namespace MLBreakout
             if (_scene.name == "MLAgentScreen")
             {
                 _yStart = 260;
+                _xStart = 260;
             }
             else if (_scene.name == "TwoPlayerHard")
             {
-                _yStart = -210;
+                _yStart = -260;
+                _xStart = 260;
             }
             else if (_scene.name == "TwoPlayerMedium")
             {
-                _yStart = -185;
+                _yStart = -170;
+                _xStart = 240;
             }
             else
             {
-                _yStart = -170;
+                _yStart = -120;
+                _xStart = 200;
             }
         }
 
