@@ -1,2 +1,4 @@
 # capstone
-Project for Capstone class. Built a replica of Atari's Breakout with a neural network that you can play against.
+Game is playable here: https://zachmarcus7.github.io/capstone/Builds/
+
+
