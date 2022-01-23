@@ -1,0 +1,29 @@
+{
+    "MLAgent": {
+        "checkpoints": [
+            {
+                "steps": 1011,
+                "file_path": "results\\medium_6\\MLAgent\\MLAgent-1011.onnx",
+                "reward": 21.0,
+                "creation_time": 1642706608.3657327,
+                "auxillary_file_paths": [
+                    "results\\medium_6\\MLAgent\\MLAgent-1011.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1011,
+            "file_path": "results\\medium_6\\MLAgent.onnx",
+            "reward": 21.0,
+            "creation_time": 1642706608.3657327,
+            "auxillary_file_paths": [
+                "results\\medium_6\\MLAgent\\MLAgent-1011.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.27.0",
+        "torch_version": "1.9.1+cu102"
+    }
+}
