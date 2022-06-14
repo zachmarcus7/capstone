@@ -8,20 +8,16 @@
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=890 height=555></canvas>
+   <div class="webgl-content" style="display: table; width: 100%; height: 100%;">
+    <div id="unity-container">
+      <canvas id="unity-canvas"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-      <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">ML Breakout</div>
-      </div>
+     </div>
     </div>
     <script>
       var container = document.querySelector("#unity-container");
@@ -102,6 +98,12 @@
         });
       };
       document.body.appendChild(script);
+    </script>
+    <script>
+    var mywidth = innerWidth;
+    var myheight = innerHeight;
+        document.getElementById("unityContainer").style.width = mywidth + "px";
+        document.getElementById("unityContainer").style.height = myheight + "px";
     </script>
   </body>
 </html>
