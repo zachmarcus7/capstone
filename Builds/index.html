@@ -76,8 +76,11 @@
       // config.matchWebGLToCanvasSize = false;
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // redirect to itch.io, more mobile friendly than webgl
-        window.location.replace("https://zachmarcus7.itch.io/ml-breakout");
+        container.className = "unity-mobile";
+        // Avoid draining fillrate performance on mobile devices,
+        // and default/override low DPI mode on mobile browsers.
+        config.devicePixelRatio = 1;
+        unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else { 
         canvas.style.width = "100%";
         canvas.style.height = "100%";
