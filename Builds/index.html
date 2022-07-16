@@ -8,20 +8,20 @@
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
-    <div id="unity-container" style="width: 100%; height: 100%;">
-      <canvas id="unity-canvas" width=auto height=auto></canvas>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=890 height=555></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-      <!--<div id="unity-warning"> </div>
+      <div id="unity-warning"> </div>
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">ML Breakout</div>
-      </div>-->
+      </div>
     </div>
     <script>
       var container = document.querySelector("#unity-container");
@@ -56,11 +56,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Builds.loader.js";
+      var loaderUrl = buildUrl + "/projects.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Builds.data.unityweb",
-        frameworkUrl: buildUrl + "/Builds.framework.js.unityweb",
-        codeUrl: buildUrl + "/Builds.wasm.unityweb",
+        dataUrl: buildUrl + "/projects.data.unityweb",
+        frameworkUrl: buildUrl + "/projects.framework.js.unityweb",
+        codeUrl: buildUrl + "/projects.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "ML Breakout",
@@ -81,9 +81,9 @@
         // and default/override low DPI mode on mobile browsers.
         config.devicePixelRatio = 1;
         unityShowBanner('WebGL builds are not supported on mobile devices.');
-      } else { 
-        canvas.style.width = "100%";
-        canvas.style.height = "100%";
+      } else {
+        canvas.style.width = "890px";
+        canvas.style.height = "555px";
       }
       loadingBar.style.display = "block";
 
@@ -94,9 +94,9 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
-          //fullscreenButton.onclick = () => {
-          //  unityInstance.SetFullscreen(1);
-          //};
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
         }).catch((message) => {
           alert(message);
         });
